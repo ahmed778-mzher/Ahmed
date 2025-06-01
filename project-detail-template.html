@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المشروع</title> <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        .rtl {
+            direction: rtl;
+        }
+        .ltr {
+            direction: ltr;
+        }
+        .project-header-bg {
+            background-image: url('https://placehold.co/1920x600/2d3748/a0aec0?text=صورة+رئيسية+للمشروع');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #2b6cb0; /* Tailwind blue-700 */
+            margin: 8px 0 0;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #edf2f7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #718096;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a5568;
+        }
+        .gemini-output {
+            background-color: #e2e8f0; /* gray-200 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            border-right: 4px solid #2b6cb0; /* blue-700 */
+            white-space: pre-wrap; /* للحفاظ على فواصل الأسطر من Gemini */
+        }
+        .loading-spinner {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-left: 8px; /* في النسخة العربية، قد يكون margin-right أفضل */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 rtl">
+
+    <nav class="bg-gray-800 text-white shadow-lg fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a href="index.html" class="text-2xl font-bold hover:text-blue-400">[اسمك هنا]</a>
+                </div>
+                <div class="hidden md:block">
+                    <ul class="flex items-center space-x-reverse space-x-8">
+                        <li><a href="index.html#hero" class="hover:text-blue-400">الرئيسية</a></li>
+                        <li><a href="index.html#about" class="hover:text-blue-400">عني</a></li>
+                        <li><a href="index.html#skills" class="hover:text-blue-400">المهارات</a></li>
+                        <li><a href="index.html#projects" class="hover:text-blue-400">المشاريع</a></li>
+                        <li><a href="index.html#contact" class="hover:text-blue-400">اتصل بي</a></li>
+                    </ul>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button-detail" class="focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu-detail" class="md:hidden hidden bg-gray-800 shadow-lg">
+            <a href="index.html#hero" class="block py-2 px-4 text-sm hover:bg-gray-700">الرئيسية</a>
+            <a href="index.html#about" class="block py-2 px-4 text-sm hover:bg-gray-700">عني</a>
+            <a href="index.html#skills" class="block py-2 px-4 text-sm hover:bg-gray-700">المهارات</a>
+            <a href="index.html#projects" class="block py-2 px-4 text-sm hover:bg-gray-700">المشاريع</a>
+            <a href="index.html#contact" class="block py-2 px-4 text-sm hover:bg-gray-700">اتصل بي</a>
+        </div>
+    </nav>
+
+    <header class="project-header-bg text-white pt-32 pb-16 md:pt-40 md:pb-24">
+        <div class="container mx-auto px-6 text-center bg-black bg-opacity-50 py-8 rounded-lg">
+            <h1 id="project-title-display" class="text-4xl md:text-5xl font-bold mb-3">تحليل بيانات المبيعات لشركة X</h1>
+            <p id="project-brief-description-display" class="text-lg md:text-xl text-gray-300">وصف موجز للمشروع.</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 md:py-16">
+        <article class="bg-white p-6 md:p-10 rounded-lg shadow-xl">
+            
+            <section class="mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-700 section-title">نظرة عامة على المشروع</h2>
+                <div id="project-overview-text" class="text-gray-600 leading-relaxed mb-4">
+                    <p>
+                        هذا هو الوصف التفصيلي لمشروع [اسم المشروع هنا]. يهدف هذا المشروع إلى حل مشكلة [المشكلة التي يحلها المشروع] من خلال [المنهجية أو التقنية الرئيسية]. كان دوري الأساسي هو [دورك في المشروع]، حيث قمت بـ [أهم مساهماتك].
+                    </p>
+                    <p>
+                        على سبيل المثال، إذا كان المشروع عن تحليل بيانات المبيعات، يمكن أن يكون النص: "عملت على تحليل مجموعة بيانات مبيعات ضخمة لشركة تجزئة رائدة بهدف تحديد الأنماط الشرائية للعملاء، وتحسين دقة التنبؤ بالمبيعات، وتقديم توصيات لزيادة الإيرادات. قمت بتنظيف ومعالجة البيانات، وتطبيق نماذج تعلم الآلة، وتصوير النتائج بشكل واضح للإدارة العليا."
+                    </p>
+                </div>
+                
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-700 section-title">التقنيات والأدوات المستخدمة</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">Python</span>
+                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Pandas</span>
+                    <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-semibold">Scikit-learn</span>
+                    <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-semibold">Matplotlib</span>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-700 section-title">لقطات من المشروع</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <img src="https://placehold.co/600x400/e2e8f0/333?text=صورة+من+المشروع+1" alt="لقطة من المشروع 1" class="rounded-lg shadow-md w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/333?text=صورة+1';">
+                    <img src="https://placehold.co/600x400/d1d5db/333?text=رسم+بياني+من+المشروع" alt="رسم بياني من المشروع" class="rounded-lg shadow-md w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/d1d5db/333?text=صورة+2';">
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-700 section-title">التحديات والحلول</h2>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">التحدي الرئيسي:</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">كان أحد التحديات الرئيسية هو [صف التحدي الأكبر الذي واجهته في هذا المشروع، مثل: التعامل مع حجم كبير من البيانات غير المهيكلة أو دمج مصادر بيانات متعددة ذات جودة متفاوتة].</p>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">الحل المطبق:</h3>
+                    <p class="text-gray-600 leading-relaxed">للتغلب على هذا التحدي، قمت بـ [اشرح كيف تغلبت على هذا التحدي وما هو الحل الذي طبقته، مثل: تطوير برنامج نصي مخصص لتنظيف البيانات وتحويلها، أو استخدام تقنيات معالجة اللغة الطبيعية لاستخلاص المعلومات الهامة].</p>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-700 section-title">النتائج والتأثير</h2>
+                <ul id="project-results-list" class="list-disc list-inside text-gray-600 leading-relaxed space-y-2 pl-5">
+                    <li>أدى المشروع إلى [النتيجة الأولى، مثل: "تحسين دقة التنبؤ بالمخاطر بنسبة 25%"].</li>
+                    <li>ساهم في [النتيجة الثانية، مثل: "توفير ما يقارب 10 ساعات عمل أسبوعيًا للفريق من خلال أتمتة التقارير"].</li>
+                    <li>قدم رؤى قيمة ساعدت الإدارة على [التأثير الثالث، مثل: "اتخاذ قرار استراتيجي بتوسيع نطاق المنتج ليشمل شريحة جديدة من العملاء"].</li>
+                </ul>
+                
+            </section>
+
+            <div class="text-center mt-12">
+                <a href="index.html#projects" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300">
+                    <i class="fas fa-arrow-right ml-2"></i> العودة إلى كل المشاريع 
+                </a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 text-center">
+        <div class="container mx-auto px-6">
+            <p class="mb-2">&copy; <span id="currentYearDetails"></span> جميع الحقوق محفوظة لـ [اسمك هنا].</p>
+            <p>مصمم ومطور بحب وشغف بالبيانات.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Dynamic Project Name and Brief from URL ---
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const projectNameParam = params.get('project_name');
+            const projectBriefParam = params.get('project_brief');
+
+            const titleDisplayElement = document.getElementById('project-title-display');
+            const briefDescriptionDisplayElement = document.getElementById('project-brief-description-display');
+            
+            if (projectNameParam) {
+                const decodedProjectName = decodeURIComponent(projectNameParam);
+                document.title = `تفاصيل المشروع | ${decodedProjectName}`;
+                if (titleDisplayElement) {
+                    titleDisplayElement.textContent = decodedProjectName;
+                }
+                 // تحديث اسم المشروع في قسم النظرة العامة إذا لزم الأمر
+                const overviewTextElement = document.getElementById('project-overview-text');
+                if (overviewTextElement && overviewTextElement.innerHTML.includes('[اسم المشروع هنا]')) {
+                    overviewTextElement.innerHTML = overviewTextElement.innerHTML.replace(/\[اسم المشروع هنا\]/g, decodedProjectName);
+                }
+
+            } else {
+                 document.title = "تفاصيل المشروع | اسم المشروع غير محدد";
+            }
+
+            if (projectBriefParam) {
+                const decodedProjectBrief = decodeURIComponent(projectBriefParam);
+                if (briefDescriptionDisplayElement) {
+                    briefDescriptionDisplayElement.textContent = decodedProjectBrief;
+                }
+            }
+        });
+
+        // --- Mobile menu toggle for detail page ---
+        const mobileMenuButtonDetail = document.getElementById('mobile-menu-button-detail');
+        const mobileMenuDetail = document.getElementById('mobile-menu-detail');
+        if (mobileMenuButtonDetail && mobileMenuDetail) {
+            mobileMenuButtonDetail.addEventListener('click', () => {
+                mobileMenuDetail.classList.toggle('hidden');
+            });
+        }
+        
+        // --- Set current year in footer for detail page ---
+        const currentYearDetailsEl = document.getElementById('currentYearDetails');
+        if (currentYearDetailsEl) {
+            currentYearDetailsEl.textContent = new Date().getFullYear();
+        }
+
+        // --- Smooth scroll for navigation links (if any are targeting sections on the same detail page) ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId.length > 1) {
+                    e.preventDefault(); 
+                    if(mobileMenuDetail && mobileMenuDetail.classList.contains('hidden') === false){
+                        mobileMenuDetail.classList.add('hidden'); 
+                    }
+                    try {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const navbar = document.querySelector('nav');
+                            const navbarHeight = navbar ? navbar.offsetHeight : 0;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+                        
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth"
+                            });
+                        }
+                    } catch (error) {
+                        console.error("Error scrolling to target:", targetId, error);
+                    }
+                } else if (targetId === "#") {
+                     e.preventDefault(); 
+                     if(mobileMenuDetail && mobileMenuDetail.classList.contains('hidden') === false){
+                        mobileMenuDetail.classList.add('hidden'); 
+                    }
+                }
+            });
+        });
+        
+        // --- Gemini API Integration ---
+        const generateSummaryButton = document.getElementById('generate-summary-button');
+        const executiveSummaryOutput = document.getElementById('executive-summary-output');
+        const summaryLoader = document.getElementById('summary-loader');
+
+        const extractInsightsButton = document.getElementById('extract-insights-button');
+        const keyInsightsOutput = document.getElementById('key-insights-output');
+        const insightsLoader = document.getElementById('insights-loader');
+
+        // مهم: لا تضع مفتاح API مباشرة في الكود للإنتاج.
+        // بالنسبة لـ Canvas، إذا كان الحقل فارغًا واستخدمت gemini-2.0-flash، سيتم توفير المفتاح تلقائيًا.
+        const apiKey = ""; 
+
+        async function callGeminiApi(promptText, outputElement, loaderElement) {
+            if (!promptText || !promptText.trim()) {
+                outputElement.textContent = "لا يوجد نص كافٍ للتحليل.";
+                outputElement.classList.remove('hidden');
+                return;
+            }
+
+            if (loaderElement) loaderElement.classList.remove('hidden');
+            if (outputElement) {
+                outputElement.classList.add('hidden');
+                outputElement.textContent = '';
+            }
+
+            let chatHistory = [{ role: "user", parts: [{ text: promptText }] }];
+            const payload = { contents: chatHistory };
+            // const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            // إذا كان apiKey فارغًا، ستقوم بيئة Canvas بإدخاله لـ gemini-2.0-flash
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=`; 
+
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ error: { message: "فشل في تحليل استجابة الخطأ من الـ API."}})); // Provide fallback error message
+                    console.error("API Error Details:", errorData);
+                    let errorMessage = `خطأ في الاتصال بالـ API: ${response.status}`;
+                    if (errorData.error && errorData.error.message) {
+                        errorMessage += ` - ${errorData.error.message}`;
+                    }
+                    outputElement.textContent = errorMessage;
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const generatedText = result.candidates[0].content.parts[0].text;
+                    outputElement.innerHTML = generatedText.replace(/\n/g, '<br>');
+                } else {
+                    outputElement.textContent = "لم يتمكن الذكاء الاصطناعي من إنشاء رد. قد يكون بسبب سياسات المحتوى أو عدم وجود رد مناسب.";
+                    console.warn("No content in API response or unexpected structure:", result);
+                     if (result.promptFeedback && result.promptFeedback.blockReason) {
+                        outputElement.textContent += ` (سبب الحجب: ${result.promptFeedback.blockReason})`;
+                    }
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                outputElement.textContent = 'حدث خطأ أثناء محاولة الوصول إلى خدمة الذكاء الاصطناعي. يرجى التحقق من وحدة التحكم لمزيد من التفاصيل والمحاولة مرة أخرى لاحقاً.';
+            } finally {
+                if (loaderElement) loaderElement.classList.add('hidden');
+                if (outputElement) outputElement.classList.remove('hidden');
+            }
+        }
+
+        if (generateSummaryButton && executiveSummaryOutput && summaryLoader) {
+            generateSummaryButton.addEventListener('click', () => {
+                const overviewTextElement = document.getElementById('project-overview-text');
+                const overviewText = overviewTextElement ? overviewTextElement.innerText : '';
+                if (!overviewText.trim() || overviewText.includes("[هنا تضع وصفًا تفصيليًا للمشروع]")) {
+                     executiveSummaryOutput.textContent = "يرجى أولاً ملء قسم 'نظرة عامة على المشروع' بنص فعلي.";
+                     executiveSummaryOutput.classList.remove('hidden');
+                     return;
+                }
+                const prompt = `قم بإنشاء ملخص تنفيذي احترافي وموجز (لا يزيد عن 3-4 جمل) بناءً على وصف المشروع التالي:\n\n"${overviewText}"\n\nالتركيز يجب أن يكون على الأهداف الرئيسية والإنجازات بأسلوب واضح ومقنع.`;
+                callGeminiApi(prompt, executiveSummaryOutput, summaryLoader);
+            });
+        }
+
+        if (extractInsightsButton && keyInsightsOutput && insightsLoader) {
+            extractInsightsButton.addEventListener('click', () => {
+                const resultsListElement = document.getElementById('project-results-list');
+                let resultsText = "";
+                if (resultsListElement) {
+                    resultsListElement.querySelectorAll('li').forEach(li => {
+                        // تجنب إضافة نصوص العناصر النائبة
+                        if (!li.innerText.startsWith("[النتيجة الأولى أو التأثير الأول للمشروع")) {
+                           resultsText += `- ${li.innerText}\n`;
+                        }
+                    });
+                }
+                 if (!resultsText.trim()) {
+                     keyInsightsOutput.textContent = "يرجى أولاً ملء قسم 'النتائج والتأثير' بمعلومات فعلية.";
+                     keyInsightsOutput.classList.remove('hidden');
+                     return;
+                }
+                const prompt = `بناءً على قائمة النتائج والتأثير التالية للمشروع، قم باستخلاص أهم 2-3 رؤى رئيسية أو اقتراحات لتحسين صياغتها لتكون أكثر تأثيراً:\n\n"${resultsText}"\n\nقدم الإجابة في نقاط واضحة.`;
+                callGeminiApi(prompt, keyInsightsOutput, insightsLoader);
+            });
+        }
+
+    </script>
+
+</body>
+</html>

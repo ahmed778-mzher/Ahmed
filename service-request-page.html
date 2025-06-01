@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب خدمة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        .rtl {
+            direction: rtl;
+        }
+        .ltr {
+            direction: ltr;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #2b6cb0; /* Tailwind blue-700 */
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #edf2f7; /* gray-200 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #718096; /* gray-500 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a5568; /* gray-700 */
+        }
+        .form-status-message {
+            display: none; 
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        .form-status-message.success {
+            background-color: #c6f6d5; /* green-200 */
+            color: #2f855a; /* green-700 */
+            display: block;
+        }
+        .form-status-message.error {
+            background-color: #fed7d7; /* red-200 */
+            color: #c53030; /* red-700 */
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-200 text-gray-800 rtl">
+
+    <nav class="bg-gray-800 text-white shadow-lg fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a href="index.html" class="text-2xl font-bold hover:text-blue-400"> أحمد ستار جبار</a>
+                </div>
+                <div class="hidden md:block">
+                    <ul class="flex items-center space-x-reverse space-x-8">
+                        <li><a href="index.html#hero" class="hover:text-blue-400">الرئيسية</a></li>
+                        <li><a href="index.html#about" class="hover:text-blue-400">عني</a></li>
+                        <li><a href="index.html#skills" class="hover:text-blue-400">المهارات</a></li>
+                        <li><a href="index.html#projects" class="hover:text-blue-400">المشاريع</a></li>
+                        <li><a href="index.html#contact" class="hover:text-blue-400">اتصل بي</a></li>
+                        <li><a href="service-request-page.html" class="text-blue-400 font-semibold">طلب خدمة</a></li>
+                    </ul>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button-sr" class="focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu-sr" class="md:hidden hidden bg-gray-800 shadow-lg">
+            <a href="index.html#hero" class="block py-2 px-4 text-sm hover:bg-gray-700">الرئيسية</a>
+            <a href="index.html#about" class="block py-2 px-4 text-sm hover:bg-gray-700">عني</a>
+            <a href="index.html#skills" class="block py-2 px-4 text-sm hover:bg-gray-700">المهارات</a>
+            <a href="index.html#projects" class="block py-2 px-4 text-sm hover:bg-gray-700">المشاريع</a>
+            <a href="index.html#contact" class="block py-2 px-4 text-sm hover:bg-gray-700">اتصل بي</a>
+            <a href="service-request-page.html" class="block py-2 px-4 text-sm text-blue-300 bg-gray-700">طلب خدمة</a>
+        </div>
+    </nav>
+
+    <section id="service-request" class="py-24 md:py-32 bg-gray-700 text-gray-200 mt-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title text-white">طلب خدمة</h2>
+            <div class="max-w-2xl mx-auto bg-gray-600 p-8 rounded-lg shadow-2xl">
+                <form id="service-request-form" action="https://formspree.io/f/YOUR_SERVICE_FORM_ID" method="POST"> <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="service-name" class="block text-gray-300 text-sm font-bold mb-2">الاسم الكامل:</label>
+                            <input type="text" id="service-name" name="name" placeholder="اسمك الكامل" class="bg-gray-500 shadow appearance-none border border-gray-400 rounded w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="service-email" class="block text-gray-300 text-sm font-bold mb-2">البريد الإلكتروني:</label>
+                            <input type="email" id="service-email" name="email" placeholder="example@domain.com" class="bg-gray-500 shadow appearance-none border border-gray-400 rounded w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="service-org" class="block text-gray-300 text-sm font-bold mb-2">اسم الجهة/الشركة (اختياري):</label>
+                            <input type="text" id="service-org" name="organization" placeholder="اسم شركتك أو مؤسستك" class="bg-gray-500 shadow appearance-none border border-gray-400 rounded w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="service-phone" class="block text-gray-300 text-sm font-bold mb-2">رقم الهاتف :</label>
+                            <input type="tel" id="service-phone" name="phone" placeholder="رقم هاتفك" class="bg-gray-500 shadow appearance-none border border-gray-400 rounded w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ltr">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="service-type" class="block text-gray-300 text-sm font-bold mb-2">نوع الخدمة المطلوبة:</label>
+                        <select id="service-type" name="service_type" class="bg-gray-500 shadow appearance-none border border-gray-400 rounded w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                            <option value="" disabled selected>اختر نوع الخدمة...</option>
+                            <option value="data_analysis">تحليل بيانات شامل</option>
+                            <option value="statistical_modeling">بناء نماذج إحصائية وتنبؤية</option>
+                            <option value="data_visualization">تصوير بيانات ولوحات مؤشرات</option>
+                            <option value="consultation">استشارات في مجال البيانات والإحصاء</option>
+                            <option value="training">تدريب على أدوات وتقنيات تحليل البيانات</option>
+                            <option value="study_design">تصميم الدراسات وجمع البيانات</option>
+                            <option value="other">أخرى (يرجى التوضيح في الوصف)</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label for="service-description" class="block text-gray-300 text-sm font-bold mb-2">وصف موجز للمشروع/المطلوب:</label>
+                        <textarea id="service-description" name="description" rows="6" placeholder="يرجى تقديم تفاصيل حول الخدمة التي تحتاجها، الأهداف، البيانات المتاحة (إن وجدت)، وأي معلومات أخرى ذات صلة." class="bg-gray-500 shadow appearance-none border border-gray-400 rounded w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required></textarea>
+                    </div>
+                     <div class="mb-6">
+                        <p class="text-sm text-gray-400">ملاحظة: لا يمكن إرفاق ملفات عبر هذا النموذج حاليًا. إذا كان لديك ملفات ضرورية، يرجى الإشارة إلى ذلك وسأقوم بالتواصل معك لترتيب استلامها.</p>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105">
+                            إرسال طلب الخدمة
+                        </button>
+                        <a href="index.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105" >العودة</a>
+                    </div>
+                </form>
+                <div id="service-request-form-status" class="form-status-message"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 text-center">
+        <div class="container mx-auto px-6">
+            <p class="mb-2">&copy; <span id="currentYearServicePage"></span> جميع الحقوق محفوظة لـ أحمد ستار جبار.</p>
+            <p>مصمم ومطور بحب وشغف بالبيانات.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle for service request page
+        const mobileMenuButtonSR = document.getElementById('mobile-menu-button-sr');
+        const mobileMenuSR = document.getElementById('mobile-menu-sr');
+        if (mobileMenuButtonSR && mobileMenuSR) {
+            mobileMenuButtonSR.addEventListener('click', () => {
+                mobileMenuSR.classList.toggle('hidden');
+            });
+        }
+
+        // Set current year in footer
+        const currentYearServicePageEl = document.getElementById('currentYearServicePage');
+        if (currentYearServicePageEl) {
+            currentYearServicePageEl.textContent = new Date().getFullYear();
+        }
+        
+        // Generic Form submission handler (copied from index.html, ensure it's self-contained or loaded globally)
+        function handleFormSubmit(formElement, statusElement) {
+            if (formElement && statusElement) {
+                formElement.addEventListener("submit", async function(event) {
+                    event.preventDefault();
+                    const data = new FormData(event.target);
+                    statusElement.className = 'form-status-message'; // Reset status
+                    statusElement.textContent = 'جارٍ الإرسال...';
+                    statusElement.style.display = 'block';
+
+                    fetch(event.target.action, {
+                        method: formElement.method,
+                        body: data,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            statusElement.textContent = "شكراً لك! تم استلام طلبك بنجاح وسأتواصل معك قريباً.";
+                            statusElement.className = 'form-status-message success'; 
+                            formElement.reset(); 
+                        } else {
+                            response.json().then(data => {
+                                if (Object.hasOwn(data, 'errors')) {
+                                    statusElement.textContent = data["errors"].map(error => error["message"]).join(", ");
+                                } else {
+                                    statusElement.textContent = "عذراً! حدث خطأ ما ولم يتم إرسال طلبك. يرجى المحاولة مرة أخرى.";
+                                }
+                                statusElement.className = 'form-status-message error'; 
+                            }).catch(() => {
+                                statusElement.textContent = "عذراً! حدث خطأ ما ولم يتم إرسال طلبك. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.";
+                                statusElement.className = 'form-status-message error';
+                            });
+                        }
+                    }).catch(error => {
+                        console.error('Form submission error:', error);
+                        statusElement.textContent = "عذراً! حدث خطأ ما ولم يتم إرسال طلبك. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.";
+                        statusElement.className = 'form-status-message error'; 
+                    });
+                });
+            }
+        }
+
+        // Initialize Service Request Form
+        const serviceRequestForm = document.getElementById('service-request-form');
+        const serviceRequestFormStatus = document.getElementById('service-request-form-status');
+        handleFormSubmit(serviceRequestForm, serviceRequestFormStatus);
+    </script>
+
+</body>
+</html>
