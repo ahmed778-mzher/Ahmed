@@ -1,7 +1,7 @@
 /* Global Styles & Fonts */
 body {
     font-family: 'Cairo', sans-serif;
-    overflow-x: hidden; /* لمنع ظهور شريط تمرير أفقي بسبب الأنيميشن */
+    overflow-x: hidden; 
 }
 
 .rtl {
@@ -12,9 +12,8 @@ body {
     direction: ltr;
 }
 
-/* Hero Section Background (Fallback and Animation Container) */
+/* Hero Section Background */
 .hero-bg {
-    /* سنعتمد على اللون والأنيميشن، لكن نترك لونًا احتياطيًا */
     background-color: #1a202c; 
 }
 
@@ -33,16 +32,13 @@ body {
 ::-webkit-scrollbar {
     width: 8px;
 }
-
 ::-webkit-scrollbar-track {
     background: #edf2f7; /* gray-200 */
 }
-
 ::-webkit-scrollbar-thumb {
     background: #718096; /* gray-500 */
     border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
     background: #4a5568; /* gray-700 */
 }
@@ -53,7 +49,7 @@ body {
     color: #2b6cb0; /* Tailwind blue-700 */
 }
 
-/* Form Status Messages (for contact and service request forms) */
+/* Form Status Messages */
 .form-status-message { 
     display: none; 
     padding: 1rem;
@@ -61,145 +57,111 @@ body {
     border-radius: 0.5rem;
     text-align: center;
 }
-
 .form-status-message.success {
     background-color: #c6f6d5; /* green-200 */
     color: #2f855a; /* green-700 */
     display: block;
 }
-
 .form-status-message.error {
     background-color: #fed7d7; /* red-200 */
     color: #c53030; /* red-700 */
     display: block;
 }
 
-/* --- Styles for Animated Background in Hero Section --- */
+/* Animated Background in Hero Section */
 #hero {
-    position: relative; /* ضروري لتحديد موضع حاوية الأنيميشن */
-    overflow: hidden; /* لإخفاء العناصر عندما تخرج من النطاق */
+    position: relative; 
+    overflow: hidden; 
 }
-
 .animation-container {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0; /* خلف المحتوى */
+    z-index: 0; 
 }
-
 .animation-container span {
     position: absolute;
-    bottom: -50px; /* يبدأ من خارج الشاشة من الأسفل */
-    color: rgba(255, 255, 255, 0.3); /* تم زيادة قيمة ألفا هنا لزيادة حدة اللون الأولي */
+    bottom: -50px; 
+    color: rgba(255, 255, 255, 0.3); 
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     animation: animateElements 25s linear infinite;
-    user-select: none; /* لمنع تحديد النص المتحرك */
+    user-select: none; 
 }
-
 @keyframes animateElements {
     0% {
         transform: translateY(0);
-        opacity: 0.3; /* تم زيادة الشفافية الأولية */
+        opacity: 0.3;
     }
     100% {
-        transform: translateY(-120vh); /* يتحرك للأعلى ليختفي تمامًا */
-        opacity: 0.5; /* تم زيادة الشفافية النهائية لجعلها أوضح أثناء الحركة */
+        transform: translateY(-120vh); 
+        opacity: 0.5;
+    }
+}
+.animation-container span:nth-child(1) { left: 10%; font-size: 1.5rem; animation-delay: -5s; animation-duration: 20s; }
+.animation-container span:nth-child(2) { left: 20%; font-size: 2rem; animation-delay: 0s; animation-duration: 30s; }
+.animation-container span:nth-child(3) { left: 85%; font-size: 1.2rem; animation-delay: -10s; animation-duration: 25s; }
+.animation-container span:nth-child(4) { left: 40%; font-size: 2.5rem; animation-delay: -15s; animation-duration: 18s; }
+.animation-container span:nth-child(5) { left: 65%; font-size: 1.8rem; animation-delay: -2s; animation-duration: 22s; }
+.animation-container span:nth-child(6) { left: 90%; font-size: 1.6rem; animation-delay: -20s; animation-duration: 28s; }
+.animation-container span:nth-child(7) { left: 5%; font-size: 1rem; animation-delay: -8s; animation-duration: 35s; }
+.animation-container span:nth-child(8) { left: 50%; font-size: 1.7rem; animation-delay: -18s; animation-duration: 23s; }
+.animation-container span:nth-child(9) { left: 75%; font-size: 2.2rem; animation-delay: -3s; animation-duration: 19s; }
+.animation-container span:nth-child(10) { left: 30%; font-size: 1.3rem; animation-delay: -12s; animation-duration: 26s; }
+.animation-container span:nth-child(11) { left: 15%; font-size: 1.9rem; animation-delay: -7s; animation-duration: 24s; }
+.animation-container span:nth-child(12) { left: 55%; font-size: 1.1rem; animation-delay: -13s; animation-duration: 32s; }
+.animation-container span:nth-child(13) { left: 80%; font-size: 2.3rem; animation-delay: -1s; animation-duration: 17s; }
+.animation-container span:nth-child(14) { left: 25%; font-size: 1.4rem; animation-delay: -17s; animation-duration: 29s; }
+.animation-container span:nth-child(15) { left: 70%; font-size: 2.1rem; animation-delay: -9s; animation-duration: 21s; }
+
+/* --- Styles for Testimonial Marquee --- */
+/* Marquee Styles */
+
+
+.testimonial-marquee-container {
+    width: 100%;
+    overflow: hidden; /* يخفي الجزء الذي يخرج من العرض */
+    padding-top: 1rem; /* إضافة بعض المسافة العلوية إذا لزم الأمر */
+    padding-bottom: 1rem; /* إضافة بعض المسافة السفلية إذا لزم الأمر */
+}
+
+.testimonial-marquee {
+    display: flex; /* يجعل البطاقات بجانب بعضها البعض */
+    /* حساب العرض: (عرض البطاقة + الهامش الأيمن للبطاقة) * عدد البطاقات الأصلية * 2 (للتكرار) */
+    /* افترض أن لديك 3 شهادات أصلية */
+    /* عرض البطاقة = 350px, الهامش الأيمن = 2rem (32px) */
+    /* (350px + 32px) * 3 * 2 = 382px * 6 = 2292px */
+    width: calc((350px + 2rem) * 6); /* (3 بطاقات أصلية * 2 للتكرار) */
+    animation: marquee-scroll 40s linear infinite; 
+}
+
+.testimonial-card {
+    flex: 0 0 350px; /* عرض ثابت لكل بطاقة */
+    margin-right: 2rem; /* هامش بين البطاقات (يعادل gap-8 في Tailwind) */
+    background-color: white;
+    padding: 2rem; /* p-8 */
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+    height: auto; /* للسماح للبطاقة بالتمدد حسب المحتوى */
+    display: flex; /* لجعل المحتوى الداخلي مرنًا إذا أردت توسيطًا عموديًا */
+    flex-direction: column; /* لترتيب محتوى البطاقة عموديًا */
+    justify-content: space-between; /* لتوزيع المسافات إذا كان ارتفاع البطاقات مختلفًا قليلاً */
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        /* يتحرك بمقدار نصف العرض الكلي (لأننا كررنا المحتوى) */
+        /* نصف العرض = (350px + 32px) * 3 = 1146px */
+        transform: translateX(calc(-1 * (350px + 2rem) * 3));
     }
 }
 
-/* تخصيص كل عنصر لإعطاء إحساس بالعشوائية */
-.animation-container span:nth-child(1) {
-    left: 10%;
-    font-size: 1.5rem;
-    animation-delay: -5s;
-    animation-duration: 20s;
+/* إيقاف الحركة عند مرور الفأرة (اختياري) */
+.testimonial-marquee:hover {
+    animation-play-state: paused;
 }
-.animation-container span:nth-child(2) {
-    left: 20%;
-    font-size: 2rem;
-    animation-delay: 0s;
-    animation-duration: 30s;
-}
-.animation-container span:nth-child(3) {
-    left: 85%;
-    font-size: 1.2rem;
-    animation-delay: -10s;
-    animation-duration: 25s;
-}
-.animation-container span:nth-child(4) {
-    left: 40%;
-    font-size: 2.5rem;
-    animation-delay: -15s;
-    animation-duration: 18s;
-}
-.animation-container span:nth-child(5) {
-    left: 65%;
-    font-size: 1.8rem;
-    animation-delay: -2s;
-    animation-duration: 22s;
-}
-.animation-container span:nth-child(6) {
-    left: 90%;
-    font-size: 1.6rem;
-    animation-delay: -20s;
-    animation-duration: 28s;
-}
- .animation-container span:nth-child(7) {
-    left: 5%;
-    font-size: 1rem;
-    animation-delay: -8s;
-    animation-duration: 35s;
-}
- .animation-container span:nth-child(8) {
-    left: 50%;
-    font-size: 1.7rem;
-    animation-delay: -18s;
-    animation-duration: 23s;
-}
-.animation-container span:nth-child(9) {
-    left: 75%;
-    font-size: 2.2rem;
-    animation-delay: -3s;
-    animation-duration: 19s;
-}
-.animation-container span:nth-child(10) {
-    left: 30%;
-    font-size: 1.3rem;
-    animation-delay: -12s;
-    animation-duration: 26s;
-}
-/* --- عناصر متحركة إضافية --- */
-.animation-container span:nth-child(11) {
-    left: 15%;
-    font-size: 1.9rem;
-    animation-delay: -7s;
-    animation-duration: 24s;
-}
-.animation-container span:nth-child(12) {
-    left: 55%;
-    font-size: 1.1rem;
-    animation-delay: -13s;
-    animation-duration: 32s;
-}
-.animation-container span:nth-child(13) {
-    left: 80%;
-    font-size: 2.3rem;
-    animation-delay: -1s;
-    animation-duration: 17s;
-}
-.animation-container span:nth-child(14) {
-    left: 25%;
-    font-size: 1.4rem;
-    animation-delay: -17s;
-    animation-duration: 29s;
-}
-.animation-container span:nth-child(15) {
-    left: 70%;
-    font-size: 2.1rem;
-    animation-delay: -9s;
-    animation-duration: 21s;
-}
-/* يمكنك إضافة المزيد من :nth-child إذا أضفت المزيد من العناصر في HTML */
