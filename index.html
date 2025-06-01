@@ -152,97 +152,50 @@
         </div>
     </section>
 
-    <section id="testimonials" class="py-16 md:py-24 bg-gray-50 overflow-hidden"> {/* تم إضافة overflow-hidden */}
+    <section id="testimonials" class="py-16 md:py-24 bg-gray-50"> 
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title">ماذا يقول العملاء عني</h2>
-            
-            <div class="testimonial-marquee-container"> {/* حاوية خارجية للشريط */}
-                <div class="testimonial-marquee"> {/* الحاوية الداخلية التي ستتحرك */}
-                    {/* الشهادة الأولى */}
-                    <div class="testimonial-card">
-                        <div class="text-center mb-4">
-                            <i class="fas fa-quote-left text-blue-500 text-3xl"></i>
-                        </div>
-                        <p class="text-gray-700 italic mb-6 leading-relaxed text-center">
-                            "كان [اسمك هنا] محترفًا للغاية وقدم تحليلات دقيقة ساعدتنا بشكل كبير في فهم بياناتنا واتخاذ قرارات أفضل. أنصح به بشدة لأي شخص يحتاج إلى خبرة في تحليل البيانات."
-                        </p>
-                        <div class="text-center">
-                            <p class="text-gray-800 font-semibold text-lg">- [اسم العميل الأول]</p>
-                            <p class="text-gray-500 text-sm">[المنصب، اسم الشركة]</p>
-                        </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title">اراء العملاء </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white p-8 rounded-lg shadow-xl transform transition duration-300 hover:scale-105">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-quote-left text-blue-500 text-3xl"></i>
                     </div>
-
-                    {/* الشهادة الثانية */}
-                    <div class="testimonial-card">
-                         <div class="text-center mb-4">
-                            <i class="fas fa-quote-left text-blue-500 text-3xl"></i>
-                        </div>
-                        <p class="text-gray-700 italic mb-6 leading-relaxed text-center">
-                            "فاقت جودة العمل توقعاتنا. قدرة [اسمك هنا] على تبسيط المفاهيم الإحصائية المعقدة وتقديمها بطريقة مفهومة كانت رائعة. ساهم عمله في تحقيق نتائج إيجابية لمشروعنا."
-                        </p>
-                         <div class="text-center">
-                            <p class="text-gray-800 font-semibold text-lg">- [اسم العميل الثاني]</p>
-                            <p class="text-gray-500 text-sm">[المنصب، اسم الشركة]</p>
-                        </div>
-                    </div>
-
-                    {/* الشهادة الثالثة */}
-                    <div class="testimonial-card">
-                         <div class="text-center mb-4">
-                            <i class="fas fa-quote-left text-blue-500 text-3xl"></i>
-                        </div>
-                        <p class="text-gray-700 italic mb-6 leading-relaxed text-center">
-                            "أظهر [اسمك هنا] التزامًا كبيرًا بالمشروع وقدم حلولاً مبتكرة للتحديات التي واجهتنا. نحن سعداء جدًا بالتعاون معه ونتطلع للعمل معه مجددًا في المستقبل."
-                        </p>
-                         <div class="text-center">
-                            <p class="text-gray-800 font-semibold text-lg">- [اسم العميل الثالث]</p>
-                            <p class="text-gray-500 text-sm">[المنصب، اسم الشركة]</p>
-                        </div>
-                    </div>
-                    
-                    {/* -- تكرار الشهادات لتحقيق تأثير التمرير المستمر -- */}
-                    {/* الشهادة الأولى (مكررة) */}
-                    <div class="testimonial-card">
-                        <div class="text-center mb-4">
-                            <i class="fas fa-quote-left text-blue-500 text-3xl"></i>
-                        </div>
-                        <p class="text-gray-700 italic mb-6 leading-relaxed text-center">
-                            "كان [اسمك هنا] محترفًا للغاية وقدم تحليلات دقيقة ساعدتنا بشكل كبير في فهم بياناتنا واتخاذ قرارات أفضل. أنصح به بشدة لأي شخص يحتاج إلى خبرة في تحليل البيانات."
-                        </p>
-                        <div class="text-center">
-                            <p class="text-gray-800 font-semibold text-lg">- [اسم العميل الأول]</p>
-                            <p class="text-gray-500 text-sm">[المنصب، اسم الشركة]</p>
-                        </div>
-                    </div>
-
-                    {/* الشهادة الثانية (مكررة) */}
-                    <div class="testimonial-card">
-                         <div class="text-center mb-4">
-                            <i class="fas fa-quote-left text-blue-500 text-3xl"></i>
-                        </div>
-                        <p class="text-gray-700 italic mb-6 leading-relaxed text-center">
-                            "فاقت جودة العمل توقعاتنا. قدرة [اسمك هنا] على تبسيط المفاهيم الإحصائية المعقدة وتقديمها بطريقة مفهومة كانت رائعة. ساهم عمله في تحقيق نتائج إيجابية لمشروعنا."
-                        </p>
-                         <div class="text-center">
-                            <p class="text-gray-800 font-semibold text-lg">- [اسم العميل الثاني]</p>
-                            <p class="text-gray-500 text-sm">[المنصب، اسم الشركة]</p>
-                        </div>
-                    </div>
-
-                    {/* الشهادة الثالثة (مكررة) */}
-                    <div class="testimonial-card">
-                         <div class="text-center mb-4">
-                            <i class="fas fa-quote-left text-blue-500 text-3xl"></i>
-                        </div>
-                        <p class="text-gray-700 italic mb-6 leading-relaxed text-center">
-                            "أظهر [اسمك هنا] التزامًا كبيرًا بالمشروع وقدم حلولاً مبتكرة للتحديات التي واجهتنا. نحن سعداء جدًا بالتعاون معه ونتطلع للعمل معه مجددًا في المستقبل."
-                        </p>
-                         <div class="text-center">
-                            <p class="text-gray-800 font-semibold text-lg">- [اسم العميل الثالث]</p>
-                            <p class="text-gray-500 text-sm">[المنصب، اسم الشركة]</p>
-                        </div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed text-center">
+                        "كان [اسمك هنا] محترفًا للغاية وقدم تحليلات دقيقة ساعدتنا بشكل كبير في فهم بياناتنا واتخاذ قرارات أفضل. أنصح به بشدة لأي شخص يحتاج إلى خبرة في تحليل البيانات."
+                    </p>
+                    <div class="text-center">
+                        <p class="text-gray-800 font-semibold text-lg">مزيهر عبود زيارة</p>
+                        <p class="text-gray-500 text-sm"> مدير شركة عبود اولاده</p>
                     </div>
                 </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-xl transform transition duration-300 hover:scale-105">
+                     <div class="text-center mb-4">
+                        <i class="fas fa-quote-left text-blue-500 text-3xl"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed text-center">
+                        "فاقت جودة العمل توقعاتنا. قدرة [اسمك هنا] على تبسيط المفاهيم الإحصائية المعقدة وتقديمها بطريقة مفهومة كانت رائعة. ساهم عمله في تحقيق نتائج إيجابية لمشروعنا."
+                    </p>
+                     <div class="text-center">
+                        <p class="text-gray-800 font-semibold text-lg">- [اسم العميل الثاني]</p>
+                        <p class="text-gray-500 text-sm">[المنصب، اسم الشركة]</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-xl transform transition duration-300 hover:scale-105">
+                     <div class="text-center mb-4">
+                        <i class="fas fa-quote-left text-blue-500 text-3xl"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed text-center">
+                        "أظهر [اسمك هنا] التزامًا كبيرًا بالمشروع وقدم حلولاً مبتكرة للتحديات التي واجهتنا. نحن سعداء جدًا بالتعاون معه ونتطلع للعمل معه مجددًا في المستقبل."
+                    </p>
+                     <div class="text-center">
+                        <p class="text-gray-800 font-semibold text-lg">- [اسم العميل الثالث]</p>
+                        <p class="text-gray-500 text-sm">[المنصب، اسم الشركة]</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
