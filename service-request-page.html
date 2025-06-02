@@ -56,6 +56,256 @@
             color: #c53030; /* red-700 */
             display: block;
         }
+        .form-status-message::before {
+            content: '';
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            margin-right: 1rem;
+            vertical-align: middle;
+        }
+        .form-status-message.success::before {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/190/190411.png'); /* Success icon */
+            background-size: cover;
+        }
+        .form-status-message.error::before {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/190/190406.png'); /* Error icon */
+            background-size: cover;
+        }
+        .text-center > *:not(:last-child) {
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 9rem;
+        }
+        @media (max-width: 640px) {
+        .text-center > *:not(:last-child) {
+            display: block;
+            margin: 0 auto 0.75rem auto;
+            width: 100%;
+        }
+        .text-center > * {
+            width: 100%;
+            margin-bottom: 0.75rem;
+        }
+}
+        @media (max-width: 768px) {
+            .section-title::after {
+                width: 40px;
+            }
+        }
+        @media (max-width: 640px) {
+            .section-title::after {
+                width: 30px;
+            }
+        }
+        @media (max-width: 480px) {
+            .section-title::after {
+                width: 20px;
+            }
+        }
+        @media (max-width: 360px) {
+            .section-title::after {
+                width: 15px;
+            }
+        }
+        @media (max-width: 320px) {
+            .section-title::after {
+                width: 10px;
+            }
+        }
+        @media (max-width: 280px) {
+            .section-title::after {
+                width: 5px;
+            }
+        }
+        @media (max-width: 240px) {
+            .section-title::after {
+                width: 3px;
+            }
+        }
+        @media (max-width: 200px) {
+            .section-title::after {
+                width: 2px;
+            }
+        }
+        @media (max-width: 160px) {
+            .section-title::after {
+                width: 1px;
+            }
+        }
+        @media (max-width: 120px) {
+            .section-title::after {
+                width: 0px;
+            }
+        }
+        @media (max-width: 100px) {
+            .section-title::after {
+                display: none;
+            }
+        }
+        @media (max-width: 80px) {
+            .section-title::after {
+                display: none;
+            }
+        }
+        @media (max-width: 60px) {
+            .section-title::after {
+                display: none;
+            }
+        }
+        @media (max-width: 40px) {
+            .section-title::after {
+                display: none;
+            }
+        }
+        @media (max-width: 20px) {
+            .section-title::after {
+                display: none;
+            }
+        }
+        @media (max-width: 10px) {
+            .section-title::after {
+                display: none;
+            }
+        }
+        @media (max-width: 5px) {
+            .section-title::after {
+                display: none;
+            }
+        }
+        @media (max-width: 3px) {
+            .section-title::after {
+                display: none;
+            }
+        }
+        @media (max-width: 2px) {
+            .section-title::after {
+                display: none;
+            }
+        }
+        @media (max-width: 1px) {
+            .section-title::after {
+                display: none;
+            }
+        }
+        @media (max-width: 0px) {
+            .section-title::after {
+                display: none;
+            }
+        }
+        /* make the space betwn the button in mobile veiw*/
+        @media (max-width: 640px) {
+            .space-x-reverse {
+                margin-right: 0.5rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 480px) {
+            .space-x-reverse {
+                margin-right: 0.25rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 360px) {
+            .space-x-reverse {
+                margin-right: 0.125rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 320px) {
+            .space-x-reverse {
+                margin-right: 0.0625rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 280px) {
+            .space-x-reverse {
+                margin-right: 0.03125rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 240px) {
+            .space-x-reverse {
+                margin-right: 0.015625rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 200px) {
+            .space-x-reverse {
+                margin-right: 0.0078125rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 160px) {
+            .space-x-reverse {
+                margin-right: 0.00390625rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 120px) {
+            .space-x-reverse {
+                margin-right: 0.001953125rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 100px) {
+            .space-x-reverse {
+                margin-right: 0.0009765625rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 80px) {
+            .space-x-reverse {
+                margin-right: 0.00048828125rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 60px) {
+            .space-x-reverse {
+                margin-right: 0.000244140625rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 40px) {
+            .space-x-reverse {
+                margin-right: 0.0001220703125rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 20px) {
+            .space-x-reverse {
+                margin-right: 0.00006103515625rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 10px) {
+            .space-x-reverse {
+                margin-right: 0.000030517578125rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 5px) {
+            .space-x-reverse {
+                margin-right: 0.0000152587890625rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 3px) {
+            .space-x-reverse {
+                margin-right: 0.00000762939453125rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 2px) {
+            .space-x-reverse {
+                margin-right: 0.000003814697265625rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 1px) {
+            .space-x-reverse {
+                margin-right: 0.0000019073486328125rem; /* Adjust as needed */
+            }
+        }
+        @media (max-width: 0px) {
+            .space-x-reverse {
+                margin-right: 0; /* Reset to zero for very small screens */
+            }
+        }
+        @media (max-width: 640px) {
+            .bg-gray-800 {
+                background-color: #2d3748; /* Tailwind gray-800 */
+            }
+            .text-gray-200 {
+                color: #edf2f7; /* Tailwind gray-200 */
+            }
+            .text-gray-300 {
+                color: #e2e8f0; /* Tailwind gray-300 */
+            }
+        }
+
     </style>
 </head>
 <body class="bg-gray-200 text-gray-800 rtl">
@@ -71,10 +321,9 @@
                         <li><a href="index.html#hero" class="hover:text-blue-400">الرئيسية</a></li>
                         <li><a href="index.html#about" class="hover:text-blue-400">عني</a></li>
                         <li><a href="index.html#skills" class="hover:text-blue-400">المهارات</a></li>
-                        <li><a href="index.html#projects" class="hover:text-blue-400">المشاريع</a></li>
+                        <li><a href="Porject.html" class="hover:text-blue-400">المشاريع</a></li>
                         <li><a href="index.html#contact" class="hover:text-blue-400">اتصل بي</a></li>
                         <li><a href="#testimonials" class="hover:text-blue-400">شهادات العملاء</a></li> 
-                        <li><a href="service-request-page.html" class="text-blue-400 font-semibold">طلب خدمة</a></li>
                     </ul>
                 </div>
                 <div class="md:hidden">
@@ -99,7 +348,7 @@
 
     <section id="service-request" class="py-24 md:py-32 bg-gray-700 text-gray-200 mt-16">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title text-white">طلب خدمة</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 section-title text-white">طلب خدمة</h2>
             <div class="max-w-2xl mx-auto bg-gray-600 p-8 rounded-lg shadow-2xl">
                 <form id="service-request-form" action="https://formspree.io/f/xyzjgrzo" method="POST"> <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
@@ -146,7 +395,7 @@
                         <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105">
                             إرسال طلب الخدمة
                         </button>
-                        <a href="index.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105" >العودة</a>
+                        <a href="index.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105" >العودة</a>
                     </div>
                 </form>
                 <div id="service-request-form-status" class="form-status-message"></div>
