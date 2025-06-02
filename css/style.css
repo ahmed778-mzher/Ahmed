@@ -726,3 +726,38 @@ footer .copyright {
   border-color: #2563eb;
   transition: box-shadow 0.3s, border-color 0.3s;
 }
+
+/* تحسين عرض شريط التوصيات على الجوال */
+.ticker-outer {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.ticker-track {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    will-change: transform;
+    transition: none;
+}
+
+.ticker-track > div {
+    min-width: 320px;
+    max-width: 350px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .ticker-outer {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .ticker-track {
+        gap: 1rem;
+    }
+    .ticker-track > div {
+        min-width: 85vw;
+        max-width: 90vw;
+    }
+}
