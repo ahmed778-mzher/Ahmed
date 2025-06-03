@@ -24,6 +24,28 @@
         .project-card img {
             border-bottom: 3px solid #2b6cb0; 
         }
+        /* تنسيق أزرار الفلاتر لتكون متجاوبة وجميلة */
+.flex.flex-wrap.justify-center.gap-2.mb-6 button {
+  min-width: 120px;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px 0 rgba(37,99,235,0.07);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.flex.flex-wrap.justify-center.gap-2.mb-6 button:active {
+  transform: scale(0.96);
+}
+
+@media (max-width: 640px) {
+  .flex.flex-wrap.justify-center.gap-2.mb-6 button {
+    min-width: 90vw;
+    font-size: 0.95rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
         /* عداد المشاريع */
 #projects-count {
   background: #e0e7ff;
@@ -174,8 +196,15 @@
     class="block w-full mt-24 pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
     placeholder="ابحث عن مشروع...">
 
-    
-    
+    <div class="flex flex-wrap justify-center gap-2 mb-6">
+    <button id="filter-python" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Python</button>
+    <button id="filter-r" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition">R</button>
+    <button id="filter-matlab" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">MATLAB</button>
+    <button id="filter-machine-learning" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">Machine Learning</button>
+    <button id="filter-data-viz" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">Data Visualization</button>
+    <button id="filter-nlp" class="bg-yellow-600 text-white px-4 py-2 rounded-lg hover:bg-yellow-700 transition">NLP</button>
+    <button id="reset-filters" class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition">إعادة تعيين الفلاتر</button>
+    </div>
     <!-- عداد عدد المشاريع -->
 <div id="projects-count" class="text-gray-700 text-lg font-semibold mb-6 text-center">
     عدد المشاريع المعروضة: <span id="projects-count-number"></span>
@@ -301,110 +330,145 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Mobile menu toggle for this page
-            const mobileMenuButtonAllProjects = document.getElementById('mobile-menu-button-all-projects');
-            const mobileMenuAllProjects = document.getElementById('mobile-menu-all-projects');
-            if (mobileMenuButtonAllProjects && mobileMenuAllProjects) {
-                mobileMenuButtonAllProjects.addEventListener('click', () => {
-                    mobileMenuAllProjects.classList.toggle('hidden');
-                });
-            }
+    // Mobile menu toggle
+    const mobileMenuButtonAllProjects = document.getElementById('mobile-menu-button-all-projects');
+    const mobileMenuAllProjects = document.getElementById('mobile-menu-all-projects');
+    if (mobileMenuButtonAllProjects && mobileMenuAllProjects) {
+        mobileMenuButtonAllProjects.addEventListener('click', () => {
+            mobileMenuAllProjects.classList.toggle('hidden');
+        });
+    }
 
-            // Set current year in footer for this page
-            const currentYearAllProjectsEl = document.getElementById('currentYearAllProjects');
-            if (currentYearAllProjectsEl) {
-                currentYearAllProjectsEl.textContent = new Date().getFullYear();
-            }
+    // Set current year in footer
+    const currentYearAllProjectsEl = document.getElementById('currentYearAllProjects');
+    if (currentYearAllProjectsEl) {
+        currentYearAllProjectsEl.textContent = new Date().getFullYear();
+    }
 
-            // Projects logic
-            const projectGrid = document.getElementById('project-grid');
-            const showMoreProjectsButton = document.getElementById('show-more-projects-button');
-            const searchInput = document.getElementById('project-search-input');
-            const projectsInitiallyVisible = 6;
+    // Projects logic
+    const projectGrid = document.getElementById('project-grid');
+    const showMoreProjectsButton = document.getElementById('show-more-projects-button');
+    const searchInput = document.getElementById('project-search-input');
+    const projectsInitiallyVisible = 6;
+    const allProjectCards = Array.from(projectGrid.getElementsByClassName('project-card'));
+    const totalProjects = allProjectCards.length;
+    let isShowingMore = false;
+    let activeFilter = null;
 
-            // تحديث عداد المشاريع الظاهرة
-            function updateProjectsCount() {
-                const allProjectCards = Array.from(projectGrid.getElementsByClassName('project-card'));
-                const visibleCount = allProjectCards.filter(card => !card.classList.contains('hidden')).length;
-                const countEl = document.getElementById('projects-count-number');
-                if (countEl) {
-                    countEl.textContent = visibleCount;
+    // تحديث عداد المشاريع الظاهرة
+    function updateProjectsCount() {
+        const visibleCount = allProjectCards.filter(card => !card.classList.contains('hidden')).length;
+        const countEl = document.getElementById('projects-count-number');
+        if (countEl) {
+            countEl.textContent = visibleCount;
+        }
+    }
+
+    // منطق إظهار/إخفاء المشاريع
+    function updateProjectVisibility() {
+        // إذا كان هناك بحث نشط، لا تطبق منطق الإظهار/الإخفاء
+        if (searchInput && searchInput.value.trim() !== '') {
+            updateProjectsCount();
+            return;
+        }
+        // إذا كان هناك فلتر نشط، أظهر فقط المشاريع المطابقة
+        if (activeFilter) {
+            allProjectCards.forEach(card => {
+                const tags = Array.from(card.querySelectorAll('span')).map(s => s.textContent.toLowerCase());
+                if (tags.some(tag => tag.includes(activeFilter))) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            showMoreProjectsButton.classList.add('hidden');
+            updateProjectsCount();
+            return;
+        }
+        // منطق الإظهار الافتراضي
+        if (totalProjects <= projectsInitiallyVisible) {
+            showMoreProjectsButton.classList.add('hidden');
+            allProjectCards.forEach(card => card.classList.remove('hidden'));
+            updateProjectsCount();
+            return;
+        }
+        showMoreProjectsButton.classList.remove('hidden');
+        allProjectCards.forEach((card, index) => {
+            if (isShowingMore) {
+                card.classList.remove('hidden');
+            } else {
+                if (index < projectsInitiallyVisible) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
                 }
             }
+        });
+        showMoreProjectsButton.textContent = isShowingMore ? 'إظهار أقل' : 'إظهار المزيد';
+        updateProjectsCount();
+    }
 
-            if (projectGrid && showMoreProjectsButton) {
-                const allProjectCards = Array.from(projectGrid.getElementsByClassName('project-card'));
-                const totalProjects = allProjectCards.length;
-                let isShowingMore = false;
+    // زر "إظهار المزيد"
+    if (showMoreProjectsButton) {
+        showMoreProjectsButton.addEventListener('click', () => {
+            isShowingMore = !isShowingMore;
+            updateProjectVisibility();
+        });
+    }
 
-                function updateProjectVisibility() {
-                    // إذا كان هناك بحث نشط، لا تطبق منطق الإظهار/الإخفاء
-                    if (searchInput && searchInput.value.trim() !== '') {
-                        updateProjectsCount();
-                        return;
-                    }
-                    if (totalProjects <= projectsInitiallyVisible) {
-                        showMoreProjectsButton.classList.add('hidden');
-                        allProjectCards.forEach(card => card.classList.remove('hidden'));
-                        updateProjectsCount();
-                        return;
-                    }
-                    showMoreProjectsButton.classList.remove('hidden');
-                    allProjectCards.forEach((card, index) => {
-                        if (isShowingMore) {
-                            card.classList.remove('hidden');
-                        } else {
-                            if (index < projectsInitiallyVisible) {
-                                card.classList.remove('hidden');
-                            } else {
-                                card.classList.add('hidden');
-                            }
-                        }
-                    });
-                    showMoreProjectsButton.textContent = isShowingMore ? 'إظهار أقل' : 'إظهار المزيد';
-                    updateProjectsCount();
+    // البحث المباشر عن المشاريع
+    if (searchInput) {
+        searchInput.addEventListener('input', function () {
+            const query = this.value.trim().toLowerCase();
+            let anyVisible = false;
+            allProjectCards.forEach(card => {
+                const title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
+                const desc = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
+                if (title.includes(query) || desc.includes(query)) {
+                    card.classList.remove('hidden');
+                    anyVisible = true;
+                } else {
+                    card.classList.add('hidden');
                 }
+            });
+            // إخفاء زر "إظهار المزيد" أثناء البحث
+            if (showMoreProjectsButton) {
+                showMoreProjectsButton.classList.add('hidden');
+            }
+            // إلغاء تفعيل الفلاتر عند البحث
+            activeFilter = null;
+            updateProjectsCount();
+        });
 
-                showMoreProjectsButton.addEventListener('click', () => {
-                    isShowingMore = !isShowingMore;
-                    updateProjectVisibility();
-                });
-
-                // البحث المباشر عن المشاريع
-                if (searchInput) {
-                    searchInput.addEventListener('input', function () {
-                        const query = this.value.trim().toLowerCase();
-                        let anyVisible = false;
-                        allProjectCards.forEach(card => {
-                            const title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
-                            const desc = card.querySelector('p') ? card.querySelector('p').textContent.toLowerCase() : '';
-                            if (title.includes(query) || desc.includes(query)) {
-                                card.classList.remove('hidden');
-                                anyVisible = true;
-                            } else {
-                                card.classList.add('hidden');
-                            }
-                        });
-                        // إخفاء زر "إظهار المزيد" أثناء البحث
-                        if (showMoreProjectsButton) {
-                            showMoreProjectsButton.classList.add('hidden');
-                        }
-                        updateProjectsCount();
-                    });
-
-                    // عند مسح البحث، أعد تفعيل زر "إظهار المزيد"
-                    searchInput.addEventListener('blur', function () {
-                        if (this.value.trim() === '' && showMoreProjectsButton && projectGrid) {
-                            isShowingMore = false;
-                            updateProjectVisibility();
-                        }
-                    });
-                }
-
-                // Initial setup
+        // عند مسح البحث، أعد تفعيل زر "إظهار المزيد"
+        searchInput.addEventListener('blur', function () {
+            if (this.value.trim() === '' && showMoreProjectsButton && projectGrid) {
+                isShowingMore = false;
                 updateProjectVisibility();
             }
         });
+    }
+
+    // منطق الفلاتر
+    function setFilter(filter) {
+        activeFilter = filter;
+        isShowingMore = false;
+        // إزالة تفعيل البحث
+        if (searchInput) searchInput.value = '';
+        updateProjectVisibility();
+    }
+
+    document.getElementById('filter-python').onclick = () => setFilter('python');
+    document.getElementById('filter-r').onclick = () => setFilter('r');
+    document.getElementById('filter-matlab').onclick = () => setFilter('matlab');
+    document.getElementById('filter-machine-learning').onclick = () => setFilter('machine learning');
+    document.getElementById('filter-data-viz').onclick = () => setFilter('data visualization');
+    document.getElementById('filter-nlp').onclick = () => setFilter('nlp');
+    document.getElementById('reset-filters').onclick = () => setFilter(null);
+
+    // تفعيل أولي
+    updateProjectVisibility();
+});
     </script>
 
 </body>

@@ -305,6 +305,20 @@
                 color: #e2e8f0; /* Tailwind gray-300 */
             }
         }
+        /* تقليل المسافة بين زر العودة ورابط الشروط والأحكام */
+.text-center + a[href="Terms.html"] {
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  text-align: center;
+  color: #60a5fa; /* أزرق فاتح */
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.text-center + a[href="Terms.html"]:hover {
+  color: #2563eb; /* أزرق غامق */
+  text-decoration: underline;
+}
 
     </style>
 </head>
@@ -391,12 +405,17 @@
                      <div class="mb-6">
                         <p class="text-sm text-gray-400">ملاحظة: لا يمكن إرفاق ملفات عبر هذا النموذج حاليًا. إذا كان لديك ملفات ضرورية، يرجى الإشارة إلى ذلك وسأقوم بالتواصل معك لترتيب استلامها.</p>
                     </div>
+
                     <div class="text-center">
                         <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105">
                             إرسال طلب الخدمة
                         </button>
                         <a href="index.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105" >العودة</a>
                     </div>
+                    <a href="Terms.html" target="_blank">
+                    الشروط والأحكام
+                    </a>
+
                 </form>
                 <div id="service-request-form-status" class="form-status-message"></div>
             </div>
