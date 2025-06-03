@@ -4,34 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed Sattar Jabbar</title>
+    <!-- أيقونة الموقع -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- خط كايرو -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <!-- أيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- ملف التنسيقات الخاص -->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        body, html { font-family: 'Cairo', sans-serif; }
+    </style>
 </head>
 <body class="bg-gray-200 text-gray-800 rtl">
 
+    <!-- شريط التنقل -->
     <nav class="bg-gray-800 text-white shadow-lg fixed w-full z-50 top-0">
         <div class="container mx-auto px-6 py-3">
             <div class="flex items-center justify-between">
                 <div>
-                    <a href="index.html" class="text-2xl font-bold hover:text-blue-400">أحمد ستار جبار</a>
+                    <a href="index.html" class="text-2xl font-bold hover:text-blue-400 transition">أحمد ستار جبار</a>
                 </div>
                 <div class="hidden md:block">
                     <ul class="flex items-center space-x-reverse space-x-8">
-                        <li><a href="#hero" class="hover:text-blue-400">الرئيسية</a></li>
-                        <li><a href="#about" class="hover:text-blue-400">عني</a></li>
-                        <li><a href="#skills" class="hover:text-blue-400">المهارات</a></li>
-                        <li><a href="Porject.html" class="hover:text-blue-400">المشاريع</a></li>
-                        <li><a href="#contact" class="hover:text-blue-400">اتصل بي</a></li>
-                        <li><a href="#testimonials" class="hover:text-blue-400">شهادات العملاء</a></li> 
-                        <li><a href="service-request-page.html" class="text-blue-400 font-semibold">طلب خدمة</a></li>
-
+                        <li><a href="#hero" class="hover:text-blue-400 transition">الرئيسية</a></li>
+                        <li><a href="#about" class="hover:text-blue-400 transition">عني</a></li>
+                        <li><a href="#skills" class="hover:text-blue-400 transition">المهارات</a></li>
+                        <li><a href="#projects" class="hover:text-blue-400 transition">المشاريع</a></li>
+                        <li><a href="#contact" class="hover:text-blue-400 transition">اتصل بي</a></li>
+                        <li><a href="#testimonials" class="hover:text-blue-400 transition">شهادات العملاء</a></li>
+                        <li><a href="service-request-page.html" class="text-blue-400 font-semibold hover:underline">طلب خدمة</a></li>
                     </ul>
                 </div>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
@@ -39,59 +48,64 @@
             </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-gray-800 shadow-lg">
-            <a href="#hero" class="block py-2 px-4 text-sm hover:bg-gray-700">الرئيسية</a>
-            <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-700">عني</a>
-            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-700">المهارات</a>
-            <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-700">المشاريع</a>
-            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-700">اتصل بي</a>
-            <a href="service-request-page.html" class="hover:text-blue-400 py-2 px-4 text-sm text-blue-300 bg-gray-700">طلب خدمة</a>
-
+            <a href="#hero" class="block py-2 px-4 text-sm hover:bg-gray-700 transition">الرئيسية</a>
+            <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-700 transition">عني</a>
+            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-700 transition">المهارات</a>
+            <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-700 transition">المشاريع</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-700 transition">اتصل بي</a>
+            <a href="service-request-page.html" class="hover:text-blue-400 py-2 px-4 text-sm text-blue-300 bg-gray-700 transition">طلب خدمة</a>
         </div>
     </nav>
 
-    <header id="hero" class="hero-bg text-white min-h-screen flex items-center justify-center pt-16">
+   <header id="hero" class="hero-bg text-white min-h-screen flex items-center justify-center pt-16">
         <div class="bg-black bg-opacity-70 p-8 md:p-12 rounded-lg text-center max-w-3xl mx-auto">
             <img src="images/profile-placeholder.jpg" alt="صورتك الشخصية" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 border-4 border-blue-500 shadow-lg" onerror="this.onerror=null;this.src='images/profile-placeholder.jpg';">
             <h1 class="text-4xl md:text-6xl font-bold mb-4">مرحباً , انا أحمد ستار جبار</h1>
-            <p class="text-xl md:text-2xl mb-8">إحصائي ومحلل بيانات ومبرمج </p>
-            
+            <p class="text-xl md:text-2xl mb-8">إحصائي، محلل بيانات، ومبرمج شغوف بتحويل الأرقام إلى حلول عملية.</p>
         </div>
     </header>
-<div class="animation-container">
-    <span>Σ(xᵢ-μ)²</span>
-    <span>y=mx+c</span>
-    <span>0110110</span>
-    <span>P(A|B)</span>
-    <span>∫f(x)dx</span>
-    <span>√n</span>
-    <span>β₁</span>
-    <span>σ²</span>
-    <span>R²</span>
-    <span>lim x→∞</span>
-    <span>E[X]</span>
-    <span>sd(X)</span>
-    <span>ANOVA</span>
-    <span>0.95 CI</span>
-    <span>H₀: μ=0</span>
-    
 
-</div>
-    <section id="about" class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title">عني</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-8 md:mb-0 text-center">
-                    <img src="images/profile-placeholder.jpg" alt="صورة احترافية لك" class="rounded-lg shadow-xl mx-auto w-64 h-64 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/e2e8f0/333333?text=صورة+احترافية';">
+    <!-- رموز متحركة -->
+    <div class="animation-container flex flex-wrap justify-center gap-4 py-4">
+        <span>Σ(xᵢ-μ)²</span>
+        <span>y=mx+c</span>
+        <span>0110110</span>
+        <span>P(A|B)</span>
+        <span>∫f(x)dx</span>
+        <span>√n</span>
+        <span>β₁</span>
+        <span>σ²</span>
+        <span>R²</span>
+        <span>lim x→∞</span>
+        <span>E[X]</span>
+        <span>sd(X)</span>
+        <span>ANOVA</span>
+        <span>0.95 CI</span>
+        <span>H₀: μ=0</span>
+        
+    </div>
+
+    <!-- قسم عني -->
+    <section id="about" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 section-title">عني</h2>
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+                <div class="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
+                    <img src="images/profile-placeholder.jpg"
+                         alt="صورة احترافية لك"
+                         class="rounded-2xl shadow-xl mx-auto w-40 h-40 sm:w-56 sm:h-56 md:w-64 md:h-64 object-cover border-4 border-blue-100"
+                         onerror="this.onerror=null;this.src='https://placehold.co/300x300/e2e8f0/333333?text=صورة+احترافية';">
                 </div>
-                <div class="md:w-2/3 md:pr-12">
-                    <h3 class="text-2xl font-semibold text-gray-700 mb-3">محلل بيانات وإحصائي ومبرمج شغوف</h3>
-                    <p class="text-lg text-gray-700 mb-4 leading-relaxed">
+                <div class="w-full md:w-2/3 md:pr-8">
+                    <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-3">محلل بيانات وإحصائي ومبرمج شغوف</h3>
+                    <p class="text-base sm:text-lg text-gray-700 mb-4 leading-relaxed">
                         أنا أحمد ستار جبار، أمتلك خبرة جيدة في مجال تحليل البيانات وتطبيق النماذج الإحصائية لاستخلاص رؤى قيمة تدعم اتخاذ القرار. أعمل بشغف لتحويل البيانات المعقدة إلى معلومات مفهومة وقابلة للتنفيذ.
                     </p>
-                    <p class="text-lg text-gray-700 mb-4 leading-relaxed">
+                    <p class="text-base sm:text-lg text-gray-700 mb-4 leading-relaxed">
                         متخصص في استخدام أدوات مثل Python (مع مكتبات Pandas, NumPy, Scikit-learn)، R، MATLAB، و SPSS لتحليل البيانات، بناء النماذج التنبؤية، وتصوير البيانات. أسعى دائماً لتعلم أحدث التقنيات وتطبيقها في مشاريعي.
                     </p>
-                    <a href="[مسار_ملف_السيرة_الذاتية.pdf]" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+                    <a href="[مسار_ملف_السيرة_الذاتية.pdf]" target="_blank"
+                       class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg mt-2">
                         تحميل السيرة الذاتية <i class="fas fa-download ml-2"></i>
                     </a>
                 </div>
@@ -99,6 +113,7 @@
         </div>
     </section>
 
+    <!-- قسم المهارات -->
     <section id="skills" class="py-16 md:py-24 bg-gray-100">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title">المهارات والأدوات</h2>
@@ -114,9 +129,9 @@
                     <p class="text-sm text-gray-600">(dplyr, ggplot2, Shiny)</p>
                 </div>
                 <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 skill-card-glow">
-                    <i class="fas fa-hashtag skill-icon mb-3"></i> 
+                    <i class="fas fa-hashtag skill-icon mb-3"></i>
                     <h3 class="text-xl font-semibold text-gray-700">C#</h3>
-                    <p class="text-sm text-gray-600">(Windows Forms, .NET)</p> 
+                    <p class="text-sm text-gray-600">(Windows Forms, .NET)</p>
                 </div>
                 <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 skill-card-glow">
                     <i class="fas fa-square-root-alt skill-icon mb-3"></i>
@@ -124,35 +139,47 @@
                     <p class="text-sm text-gray-600">(Statistics and Machine Learning Toolbox)</p>
                 </div>
                 <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 skill-card-glow">
-                     <i class="fas fa-chart-bar skill-icon mb-3"></i> <h3 class="text-xl font-semibold text-gray-700">SPSS</h3>
+                    <i class="fas fa-chart-bar skill-icon mb-3"></i>
+                    <h3 class="text-xl font-semibold text-gray-700">SPSS</h3>
                     <p class="text-sm text-gray-600">(التحليل الإحصائي المتقدم)</p>
                 </div>
-                <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ">
+                <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 skill-card-glow">
                     <i class="fas fa-database skill-icon mb-3"></i>
                     <h3 class="text-xl font-semibold text-gray-700">SQL</h3>
                     <p class="text-sm text-gray-600">(استعلام وتحليل البيانات)</p>
                 </div>
+                <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 skill-card-glow">
+                    <i class="fas fa-chart-pie skill-icon mb-3"></i>
+                    <h3 class="text-xl font-semibold text-gray-700">Tableau</h3>
+                    <p class="text-sm text-gray-600">(تصوير البيانات)</p>
+                </div>
+                
             </div>
         </div>
     </section>
+
+    <!-- قسم المشاريع -->
     <section id="projects" class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title"> أبرز المشاريع التحليلية والبرمجية</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div class="bg-gray-50 rounded-lg shadow-xl overflow-hidden transform transition duration-300 hover:scale-105">
+                <!-- كرر البطاقات حسب الحاجة -->
+                <div class="bg-gray-50 rounded-lg shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 relative">
+                    <span class="badge-new">جديد</span>
                     <img src="images/Shapiro.png" alt="صورة المشروع 1" class="w-full h-56 object-cover" onerror="this.onerror=null">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold mb-3 text-blue-700" id="project1-name"> اختبار الطبيعية </h3>
                         <p class="text-gray-700 mb-4 text-sm" id="project1-brief">حول هذا المشروع يقوم بإجراء اختبار شابيرو-ويلك للتحقق مما إذا كانت مجموعة البيانات تتبع توزيعًا طبيعيًا. كما أنه يصور توزيع البيانات باستخدام هيستوجرام ويضع فوقه منحنى توزيع طبيعي.</p>
                         <span class="inline-block bg-blue-200 text-blue-800 text-xs font-semibold mr-2 mb-2 px-2.5 py-0.5 rounded-full">Python</span>
                         <div class="mt-4">
-                           <a href="project-detail-template.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 text-sm">تفاصيل المشروع</a>
+                        <a href="project-detail-template.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 text-sm">تفاصيل المشروع</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-gray-50 rounded-lg shadow-xl overflow-hidden transform transition duration-300 hover:scale-105">
+                <span class="badge-new">جديد</span>
+
                     <img src="images/Shapiro.png" alt="صورة المشروع 1" class="w-full h-56 object-cover" onerror="this.onerror=null">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold mb-3 text-blue-700" id="project1-name"> اختبار الطبيعية </h3>
@@ -188,7 +215,8 @@
         </div>
     </section>
 
-    <section id="testimonials" class="py-16 md:py-24 bg-gray-50 overflow-hidden"> 
+    <!-- قسم شهادات العملاء -->
+    <section id="testimonials" class="py-16 md:py-24 bg-gray-50 overflow-hidden">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title">اراء العملاء </h2>
             <div class="ticker-outer">
@@ -277,11 +305,13 @@
         </div>
     </section>
 
+    <!-- قسم التواصل -->
     <section id="contact" class="py-16 md:py-24 bg-gray-800 text-gray-200">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title text-white">تواصل معي</h2>
             <div class="max-w-2xl mx-auto bg-gray-700 p-8 rounded-lg shadow-2xl">
-                <form id="contact-form" action="https://formspree.io/f/xyzjgrzo" method="POST"> <div class="mb-6">
+                <form id="contact-form" action="https://formspree.io/f/xyzjgrzo" method="POST">
+                    <div class="mb-6">
                         <label for="name" class="block text-gray-300 text-sm font-bold mb-2">الاسم الكامل:</label>
                         <input type="text" id="name" name="name" placeholder="اسمك الكامل" class="bg-gray-600 shadow appearance-none border border-gray-500 rounded w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
                     </div>
@@ -307,38 +337,66 @@
             </div>
             <div class="text-center mt-12">
                 <p class="text-lg mb-2">أو تواصل معي مباشرة عبر:</p>
-                <p class="text-xl font-semibold text-blue-400">amgedtyidsaop@gmail.com</p>
-                <p class="text-lg mt-1">07812630199</p>
-                <div class="flex justify-center space-x-reverse space-x-6 mt-6">
-                    <a href=" https://www.linkedin.com/in/%D8%A3%D8%AD%D9%85%D8%AF-%D8%B3%D8%AA%D8%A7%D8%B1-%D8%AC%D8%A8%D8%A7%D8%B1-a1832a1bb/" target="_blank" title="LinkedIn" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-linkedin fa-2x"></i>
-                    </a>
-                    <a href="https://github.com/ahmed778-mzher" target="_blank" title="GitHub" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-github fa-2x"></i>
-                    </a>
-                    <a href="#" target="_blank" title="Twitter / X" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-twitter-square fa-2x"></i> </a>
-                    <a href="https://www.kaggle.com/ahmedsattarjabbar" target="_blank" title="Kaggle" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-kaggle fa-2x"></i>
-                    </a>
-                    <a href="https://www.facebook.com/ahmed.sattar.708805" target="_blank" title="Facebook" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-facebook-square fa-2x"></i>
-                        </a>
-                    <a href="#" target="_blank" title="instgram" class="tex-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-instagram-square fa-2x"></i>
-                    </a>
+             <div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-6 mb-2">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-envelope text-blue-400 text-2xl"></i>
+                    <span class="text-xl font-semibold text-blue-400 email-contact">amgedtyidsaop@gmail.com</span>
                 </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-phone-alt text-green-400 text-2xl"></i>
+                    <span class="text-lg font-semibold text-green-400 phone-contact">07812630199</span>
+                </div>
+             </div>
+                <a href="Terms.html" class="terms-link">شروط الخدمة</a>
+                <!--add a location-->
+                <div class="mt-4 flex items-center justify-center gap-2 text-lg font-semibold text-gray-300 location-info">
+                    <i class="fas fa-map-marker-alt text-red-500 text-2xl"></i>
+                    <span>العراق، بغداد</span>
+                </div>
+                <div class="flex justify-center flex-wrap gap-4 mt-6">
+            <a href="https://www.linkedin.com/in/%D8%A3%D8%AD%D9%85%D8%AF-%D8%B3%D8%AA%D8%A7%D8%B1-%D8%AC%D8%A8%D8%A7%D8%B1-a1832a1bb/" target="_blank" title="LinkedIn"
+            class="social-icon bg-white/10 hover:bg-blue-700 text-blue-500 hover:text-white rounded-full p-3 shadow transition duration-300">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+            <a href="https://github.com/ahmed778-mzher" target="_blank" title="GitHub"
+            class="social-icon bg-white/10 hover:bg-gray-800 text-gray-700 hover:text-white rounded-full p-3 shadow transition duration-300">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
+            <a href="#" target="_blank" title="Twitter / X"
+            class="social-icon bg-white/10 hover:bg-blue-500 text-blue-400 hover:text-white rounded-full p-3 shadow transition duration-300">
+                <i class="fab fa-twitter-square fa-2x"></i>
+            </a>
+            <a href="https://www.kaggle.com/ahmedsattarjabbar" target="_blank" title="Kaggle"
+            class="social-icon bg-white/10 hover:bg-blue-400 text-blue-400 hover:text-white rounded-full p-3 shadow transition duration-300">
+                <i class="fab fa-kaggle fa-2x"></i>
+            </a>
+            <a href="https://www.facebook.com/ahmed.sattar.708805" target="_blank" title="Facebook"
+            class="social-icon bg-white/10 hover:bg-blue-600 text-blue-600 hover:text-white rounded-full p-3 shadow transition duration-300">
+                <i class="fab fa-facebook-square fa-2x"></i>
+            </a>
+            <a href="#" target="_blank" title="Instagram"
+            class="social-icon bg-white/10 hover:bg-pink-500 text-pink-400 hover:text-white rounded-full p-3 shadow transition duration-300">
+                <i class="fab fa-instagram-square fa-2x"></i>
+            </a>
+</div>
 
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-gray-400 py-12 text-center">
-        <div class="container mx-auto px-6">
-            <p class="mb-2">&copy; <span id="currentYear"></span> جميع الحقوق محفوظة لـ أحمد ستار جبار.</p>
-            <p>مصمم ومطور بحب وشغف بالبيانات.</p>
-        </div>
-    </footer>
+    <!-- الفوتر -->
+    <footer class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-900 text-gray-300 py-12 text-center shadow-inner mt-12 border-t border-gray-800">
+    <div class="container mx-auto px-6">
+        <p class="mb-2 text-lg font-semibold tracking-wide flex items-center justify-center gap-2">
+            <i class="fas fa-database text-blue-500 text-xl animate-bounce"></i>
+            &copy; <span id="currentYear"></span> جميع الحقوق محفوظة لـ أحمد ستار جبار.
+        </p>
+        <p class="italic text-gray-400 flex items-center justify-center gap-2">
+            <i class="fas fa-heart text-red-500 animate-pulse"></i>
+            مصمم ومطور بحب وشغف بالبيانات.
+        </p>
+    </div>
+</footer>
 
     <script src="js/script.js"></script>
 </body>

@@ -3,332 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طلب خدمة</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+<!-- ...existing code... -->
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-10 section-title text-white animated-fadeInUp">طلب خدمة</h2>
+<!-- ...existing code... -->    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: 'Cairo', sans-serif;
+        /* ...existing code... */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .rtl {
-            direction: rtl;
+        .animated-fadeInUp {
+            animation: fadeInUp 1.2s cubic-bezier(.39,.575,.565,1.000) both;
         }
-        .ltr {
-            direction: ltr;
-        }
+/* ...existing code... */
+        body { font-family: 'Cairo', sans-serif; }
+        .rtl { direction: rtl; }
+        .ltr { direction: ltr; }
         .section-title::after {
             content: '';
             display: block;
             width: 60px;
             height: 4px;
-            background-color: #2b6cb0; /* Tailwind blue-700 */
+            background-color: #2b6cb0;
             margin: 8px auto 0;
             border-radius: 2px;
         }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #edf2f7; /* gray-200 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #718096; /* gray-500 */
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #4a5568; /* gray-700 */
-        }
         .form-status-message {
-            display: none; 
+            display: none;
             padding: 1rem;
             margin-top: 1rem;
             border-radius: 0.5rem;
             text-align: center;
         }
         .form-status-message.success {
-            background-color: #c6f6d5; /* green-200 */
-            color: #2f855a; /* green-700 */
+            background-color: #c6f6d5;
+            color: #2f855a;
             display: block;
         }
         .form-status-message.error {
-            background-color: #fed7d7; /* red-200 */
-            color: #c53030; /* red-700 */
+            background-color: #fed7d7;
+            color: #c53030;
             display: block;
         }
-        .form-status-message::before {
-            content: '';
-            display: inline-block;
-            width: 1rem;
-            height: 1rem;
-            margin-right: 1rem;
-            vertical-align: middle;
-        }
         .form-status-message.success::before {
-            background-image: url('https://cdn-icons-png.flaticon.com/512/190/190411.png'); /* Success icon */
-            background-size: cover;
+            content: '✔️ ';
         }
         .form-status-message.error::before {
-            background-image: url('https://cdn-icons-png.flaticon.com/512/190/190406.png'); /* Error icon */
-            background-size: cover;
+            content: '❌ ';
         }
         .text-center > *:not(:last-child) {
             margin-left: 1rem;
             margin-right: 1rem;
-            margin-bottom: 9rem;
-        }
-        @media (max-width: 640px) {
-        .text-center > *:not(:last-child) {
-            display: block;
-            margin: 0 auto 0.75rem auto;
-            width: 100%;
-        }
-        .text-center > * {
-            width: 100%;
             margin-bottom: 0.75rem;
         }
-}
-        @media (max-width: 768px) {
-            .section-title::after {
-                width: 40px;
-            }
-        }
         @media (max-width: 640px) {
-            .section-title::after {
-                width: 30px;
+            .text-center > *:not(:last-child) {
+                display: block;
+                margin: 0 auto 0.75rem auto;
+                width: 100%;
+            }
+            .text-center > * {
+                width: 100%;
+                margin-bottom: 0.75rem;
             }
         }
-        @media (max-width: 480px) {
-            .section-title::after {
-                width: 20px;
-            }
+        .text-center + a[href="Terms.html"] {
+            display: block;
+            margin-top: 0.5rem;
+            text-align: center;
+            color: #60a5fa;
+            font-weight: 500;
+            transition: color 0.2s;
         }
-        @media (max-width: 360px) {
-            .section-title::after {
-                width: 15px;
-            }
+        .text-center + a[href="Terms.html"]:hover {
+            color: #2563eb;
+            text-decoration: underline;
         }
-        @media (max-width: 320px) {
-            .section-title::after {
-                width: 10px;
-            }
-        }
-        @media (max-width: 280px) {
-            .section-title::after {
-                width: 5px;
-            }
-        }
-        @media (max-width: 240px) {
-            .section-title::after {
-                width: 3px;
-            }
-        }
-        @media (max-width: 200px) {
-            .section-title::after {
-                width: 2px;
-            }
-        }
-        @media (max-width: 160px) {
-            .section-title::after {
-                width: 1px;
-            }
-        }
-        @media (max-width: 120px) {
-            .section-title::after {
-                width: 0px;
-            }
-        }
-        @media (max-width: 100px) {
-            .section-title::after {
-                display: none;
-            }
-        }
-        @media (max-width: 80px) {
-            .section-title::after {
-                display: none;
-            }
-        }
-        @media (max-width: 60px) {
-            .section-title::after {
-                display: none;
-            }
-        }
-        @media (max-width: 40px) {
-            .section-title::after {
-                display: none;
-            }
-        }
-        @media (max-width: 20px) {
-            .section-title::after {
-                display: none;
-            }
-        }
-        @media (max-width: 10px) {
-            .section-title::after {
-                display: none;
-            }
-        }
-        @media (max-width: 5px) {
-            .section-title::after {
-                display: none;
-            }
-        }
-        @media (max-width: 3px) {
-            .section-title::after {
-                display: none;
-            }
-        }
-        @media (max-width: 2px) {
-            .section-title::after {
-                display: none;
-            }
-        }
-        @media (max-width: 1px) {
-            .section-title::after {
-                display: none;
-            }
-        }
-        @media (max-width: 0px) {
-            .section-title::after {
-                display: none;
-            }
-        }
-        /* make the space betwn the button in mobile veiw*/
-        @media (max-width: 640px) {
-            .space-x-reverse {
-                margin-right: 0.5rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 480px) {
-            .space-x-reverse {
-                margin-right: 0.25rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 360px) {
-            .space-x-reverse {
-                margin-right: 0.125rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 320px) {
-            .space-x-reverse {
-                margin-right: 0.0625rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 280px) {
-            .space-x-reverse {
-                margin-right: 0.03125rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 240px) {
-            .space-x-reverse {
-                margin-right: 0.015625rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 200px) {
-            .space-x-reverse {
-                margin-right: 0.0078125rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 160px) {
-            .space-x-reverse {
-                margin-right: 0.00390625rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 120px) {
-            .space-x-reverse {
-                margin-right: 0.001953125rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 100px) {
-            .space-x-reverse {
-                margin-right: 0.0009765625rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 80px) {
-            .space-x-reverse {
-                margin-right: 0.00048828125rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 60px) {
-            .space-x-reverse {
-                margin-right: 0.000244140625rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 40px) {
-            .space-x-reverse {
-                margin-right: 0.0001220703125rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 20px) {
-            .space-x-reverse {
-                margin-right: 0.00006103515625rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 10px) {
-            .space-x-reverse {
-                margin-right: 0.000030517578125rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 5px) {
-            .space-x-reverse {
-                margin-right: 0.0000152587890625rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 3px) {
-            .space-x-reverse {
-                margin-right: 0.00000762939453125rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 2px) {
-            .space-x-reverse {
-                margin-right: 0.000003814697265625rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 1px) {
-            .space-x-reverse {
-                margin-right: 0.0000019073486328125rem; /* Adjust as needed */
-            }
-        }
-        @media (max-width: 0px) {
-            .space-x-reverse {
-                margin-right: 0; /* Reset to zero for very small screens */
-            }
-        }
-        @media (max-width: 640px) {
-            .bg-gray-800 {
-                background-color: #2d3748; /* Tailwind gray-800 */
-            }
-            .text-gray-200 {
-                color: #edf2f7; /* Tailwind gray-200 */
-            }
-            .text-gray-300 {
-                color: #e2e8f0; /* Tailwind gray-300 */
-            }
-        }
-        /* تقليل المسافة بين زر العودة ورابط الشروط والأحكام */
-.text-center + a[href="Terms.html"] {
-  display: block;
-  margin-top: 0.5rem;
-  margin-bottom: 0;
-  text-align: center;
-  color: #60a5fa; /* أزرق فاتح */
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.text-center + a[href="Terms.html"]:hover {
-  color: #2563eb; /* أزرق غامق */
-  text-decoration: underline;
-}
-
     </style>
 </head>
 <body class="bg-gray-200 text-gray-800 rtl">
 
+    <!-- شريط التنقل -->
     <nav class="bg-gray-800 text-white shadow-lg fixed w-full z-50 top-0">
         <div class="container mx-auto px-6 py-3">
             <div class="flex items-center justify-between">
                 <div>
-                    <a href="index.html" class="text-2xl font-bold hover:text-blue-400"> أحمد ستار جبار</a>
+                    <a href="index.html" class="text-2xl font-bold hover:text-blue-400">أحمد ستار جبار</a>
                 </div>
                 <div class="hidden md:block">
                     <ul class="flex items-center space-x-reverse space-x-8">
@@ -337,12 +105,12 @@
                         <li><a href="index.html#skills" class="hover:text-blue-400">المهارات</a></li>
                         <li><a href="Porject.html" class="hover:text-blue-400">المشاريع</a></li>
                         <li><a href="index.html#contact" class="hover:text-blue-400">اتصل بي</a></li>
-                        <li><a href="#testimonials" class="hover:text-blue-400">شهادات العملاء</a></li> 
+                        <li><a href="index.html#testimonials" class="hover:text-blue-400">شهادات العملاء</a></li>
                     </ul>
                 </div>
                 <div class="md:hidden">
                     <button id="mobile-menu-button-sr" class="focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
@@ -350,21 +118,22 @@
             </div>
         </div>
         <div id="mobile-menu-sr" class="md:hidden hidden bg-gray-800 shadow-lg">
-           <li><a href="index.html#hero" class="hover:text-blue-400">الرئيسية</a></li>
-           <li><a href="index.html#about" class="hover:text-blue-400">عني</a></li>
-           <li><a href="index.html#skills" class="hover:text-blue-400">المهارات</a></li>
-           <li><a href="index.html#projects" class="hover:text-blue-400">المشاريع</a></li>
-           <li><a href="index.html#contact" class="hover:text-blue-400">اتصل بي</a></li>
-           <li><a href="service-request-page.html" class="text-blue-400 font-semibold">طلب خدمة</a></li>
-
+            <li><a href="index.html#hero" class="hover:text-blue-400">الرئيسية</a></li>
+            <li><a href="index.html#about" class="hover:text-blue-400">عني</a></li>
+            <li><a href="index.html#skills" class="hover:text-blue-400">المهارات</a></li>
+            <li><a href="index.html#projects" class="hover:text-blue-400">المشاريع</a></li>
+            <li><a href="index.html#contact" class="hover:text-blue-400">اتصل بي</a></li>
+            <li><a href="service-request-page.html" class="text-blue-400 font-semibold">طلب خدمة</a></li>
         </div>
     </nav>
 
+    <!-- نموذج طلب الخدمة -->
     <section id="service-request" class="py-24 md:py-32 bg-gray-700 text-gray-200 mt-16">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 section-title text-white">طلب خدمة</h2>
             <div class="max-w-2xl mx-auto bg-gray-600 p-8 rounded-lg shadow-2xl">
-                <form id="service-request-form" action="https://formspree.io/f/xyzjgrzo" method="POST"> <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <form id="service-request-form" action="https://formspree.io/f/xyzjgrzo" method="POST">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label for="service-name" class="block text-gray-300 text-sm font-bold mb-2">الاسم الكامل:</label>
                             <input type="text" id="service-name" name="name" placeholder="اسمك الكامل" class="bg-gray-500 shadow appearance-none border border-gray-400 rounded w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
@@ -393,7 +162,7 @@
                             <option value="data_visualization">تصوير بيانات ولوحات مؤشرات</option>
                             <option value="consultation">استشارات في مجال البيانات والإحصاء</option>
                             <option value="training">تدريب على أدوات وتقنيات تحليل البيانات</option>
-                            <option value="data_collection">كتاب وتحليل بحث تخرج</option>
+                            <option value="data_collection">كتابة وتحليل بحث تخرج</option>
                             <option value="study_design">تصميم الدراسات وجمع البيانات</option>
                             <option value="other">أخرى (يرجى التوضيح في الوصف)</option>
                         </select>
@@ -402,35 +171,43 @@
                         <label for="service-description" class="block text-gray-300 text-sm font-bold mb-2">وصف موجز للمشروع/المطلوب:</label>
                         <textarea id="service-description" name="description" rows="6" placeholder="يرجى تقديم تفاصيل حول الخدمة التي تحتاجها، الأهداف، البيانات المتاحة (إن وجدت)، وأي معلومات أخرى ذات صلة." class="bg-gray-500 shadow appearance-none border border-gray-400 rounded w-full py-3 px-4 text-gray-200 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required></textarea>
                     </div>
-                     <div class="mb-6">
-                        <p class="text-sm text-gray-400">ملاحظة: لا يمكن إرفاق ملفات عبر هذا النموذج حاليًا. إذا كان لديك ملفات ضرورية، يرجى الإشارة إلى ذلك وسأقوم بالتواصل معك لترتيب استلامها.</p>
+                    <div class="mb-6">
+                        <p class="text-sm text-gray-400">ملاحظة: لا يمكن إرفاق ملفات عبر هذا النموذج حالياً. إذا كان لديك ملفات ضرورية، يرجى الإشارة إلى ذلك وسأتواصل معك لترتيب استلامها.</p>
                     </div>
-
                     <div class="text-center">
+                        <div class="mb-6 flex items-center justify-center">
+                            <input type="checkbox" id="terms-checkbox" class="form-checkbox h-5 w-5 text-blue-600" required>
+                            <label for="terms-checkbox" class="ml-2 text-gray-200 text-sm select-none">
+                                قرأت <a href="Terms.html" target="_blank" class="underline text-blue-300 hover:text-blue-500">الشروط والأحكام</a> وأوافق عليها
+                            </label>
+                        </div>
                         <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105">
                             إرسال طلب الخدمة
                         </button>
-                        <a href="index.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105" >العودة</a>
+                        <a href="index.html" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-lg text-lg transition duration-300 ease-in-out transform hover:scale-105">العودة</a>
                     </div>
-                    <a href="Terms.html" target="_blank">
-                    الشروط والأحكام
-                    </a>
-
                 </form>
                 <div id="service-request-form-status" class="form-status-message"></div>
             </div>
         </div>
     </section>
 
+    <!-- الفوتر -->
     <footer class="bg-gray-900 text-gray-400 py-12 text-center">
         <div class="container mx-auto px-6">
-            <p class="mb-2">&copy; <span id="currentYearServicePage"></span> جميع الحقوق محفوظة لـ أحمد ستار جبار.</p>
-            <p>مصمم ومطور بحب وشغف بالبيانات.</p>
+            <p class="mb-2 text-lg font-semibold tracking-wide flex items-center justify-center gap-2">
+                <i class="fas fa-database text-blue-500 text-xl animate-bounce"></i>
+                &copy; <span id="currentYearServicePage"></span> جميع الحقوق محفوظة لـ أحمد ستار جبار.
+            </p>
+            <p class="italic text-gray-400 flex items-center justify-center gap-2">
+                <i class="fas fa-heart text-red-500 animate-pulse"></i>
+                مصمم ومطور بحب وشغف بالبيانات.
+            </p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle for service request page
+        // Mobile menu toggle
         const mobileMenuButtonSR = document.getElementById('mobile-menu-button-sr');
         const mobileMenuSR = document.getElementById('mobile-menu-sr');
         if (mobileMenuButtonSR && mobileMenuSR) {
@@ -444,28 +221,48 @@
         if (currentYearServicePageEl) {
             currentYearServicePageEl.textContent = new Date().getFullYear();
         }
-        
-        // Generic Form submission handler (copied from index.html, ensure it's self-contained or loaded globally)
+
+        // Form submission handler
         function handleFormSubmit(formElement, statusElement) {
             if (formElement && statusElement) {
                 formElement.addEventListener("submit", async function(event) {
                     event.preventDefault();
                     const data = new FormData(event.target);
-                    statusElement.className = 'form-status-message'; // Reset status
+                    statusElement.className = 'form-status-message';
                     statusElement.textContent = 'جارٍ الإرسال...';
                     statusElement.style.display = 'block';
 
                     fetch(event.target.action, {
                         method: formElement.method,
                         body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
+                        headers: { 'Accept': 'application/json' }
                     }).then(response => {
                         if (response.ok) {
+                            let sideMsg = document.createElement('div');
+                            sideMsg.textContent = "✅ تم إرسال الطلب بنجاح!";
+                            sideMsg.style.position = 'fixed';
+                            sideMsg.style.top = '30px';
+                            sideMsg.style.left = '30px';
+                            sideMsg.style.background = '#2563eb';
+                            sideMsg.style.color = '#fff';
+                            sideMsg.style.padding = '1rem 2rem';
+                            sideMsg.style.borderRadius = '1rem';
+                            sideMsg.style.boxShadow = '0 4px 24px 0 rgba(37,99,235,0.18)';
+                            sideMsg.style.fontSize = '1.2rem';
+                            sideMsg.style.zIndex = '9999';
+                            sideMsg.style.opacity = '0.97';
+                            sideMsg.style.transition = 'opacity 0.5s';
+
+                            document.body.appendChild(sideMsg);
+
+                            setTimeout(() => {
+                                sideMsg.style.opacity = '0';
+                                setTimeout(() => sideMsg.remove(), 600);
+                            }, 2500);
+
                             statusElement.textContent = "شكراً لك! تم استلام طلبك بنجاح وسأتواصل معك قريباً.";
-                            statusElement.className = 'form-status-message success'; 
-                            formElement.reset(); 
+                            statusElement.className = 'form-status-message success';
+                            formElement.reset();
                         } else {
                             response.json().then(data => {
                                 if (Object.hasOwn(data, 'errors')) {
@@ -473,7 +270,7 @@
                                 } else {
                                     statusElement.textContent = "عذراً! حدث خطأ ما ولم يتم إرسال طلبك. يرجى المحاولة مرة أخرى.";
                                 }
-                                statusElement.className = 'form-status-message error'; 
+                                statusElement.className = 'form-status-message error';
                             }).catch(() => {
                                 statusElement.textContent = "عذراً! حدث خطأ ما ولم يتم إرسال طلبك. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.";
                                 statusElement.className = 'form-status-message error';
@@ -482,7 +279,7 @@
                     }).catch(error => {
                         console.error('Form submission error:', error);
                         statusElement.textContent = "عذراً! حدث خطأ ما ولم يتم إرسال طلبك. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.";
-                        statusElement.className = 'form-status-message error'; 
+                        statusElement.className = 'form-status-message error';
                     });
                 });
             }
@@ -493,6 +290,5 @@
         const serviceRequestFormStatus = document.getElementById('service-request-form-status');
         handleFormSubmit(serviceRequestForm, serviceRequestFormStatus);
     </script>
-
 </body>
 </html>

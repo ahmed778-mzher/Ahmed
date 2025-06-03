@@ -17,7 +17,148 @@ body {
     /* سنعتمد على اللون والأنيميشن، لكن نترك لونًا احتياطيًا */
     background-color: #1a202c; 
 }
+.container, .max-w-2xl, .max-w-xl, .max-w-3xl {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+.project-card, .skill-card-glow, .bg-white, .bg-gray-50 {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+button, .btn, .text-center button, .text-center a {
+    min-width: 120px;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+@media (max-width: 640px) {
+    button, .btn, .text-center button, .text-center a {
+        width: 100%;
+        min-width: unset;
+        font-size: 0.95rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+.email-contact, .phone-contact {
+    font-size: 1rem;
+    word-break: break-all;
+}
+@media (min-width: 640px) {
+    .email-contact, .phone-contact { font-size: 1.2rem; }
+}
+.location-info {
+    flex-wrap: wrap;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+@media (min-width: 640px) {
+    .location-info { font-size: 1.2rem; }
+}
+.social-icon {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+}
+@media (max-width: 480px) {
+    .social-icon {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+    }
+}
 
+footer {
+    padding: 2rem 1rem;
+    font-size: 1rem;
+}
+@media (max-width: 640px) {
+    footer { padding: 1.2rem 0.5rem; font-size: 0.95rem; }
+}
+@media (max-width: 480px) {
+    footer { padding: 0.7rem 0.2rem; font-size: 0.85rem; }
+}
+
+.flex, .flex-row, .flex-col {
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+@media (max-width: 480px) {
+    .flex, .flex-row, .flex-col {
+        gap: 0.5rem;
+    }
+}
+.py-16, .md\:py-24, .mt-12, .mb-12, .mt-24, .mb-24 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+@media (min-width: 640px) {
+    .py-16, .md\:py-24, .mt-12, .mb-12, .mt-24, .mb-24 {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+        margin-top: 3rem !important;
+        margin-bottom: 3rem !important;
+    }
+}
+
+img, .project-card img, .profile-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 13. تصغير حجم النصوص الطويلة تلقائياً */
+* {
+    box-sizing: border-box;
+    word-break: break-word;
+}
+@media (max-width: 600px) {
+    .ticker-track > div {
+        min-width: 90vw;
+        max-width: 95vw;
+    }
+    .ticker-track {
+        gap: 0.5rem;
+    }
+}
+
+/* 15. إخفاء أي شريط تمرير أفقي */
+body {
+    overflow-x: hidden;
+}
+
+.grid, .project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+@media (min-width: 640px) {
+    .grid, .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+    .grid, .project-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.section-title {
+    font-size: 2rem;
+}
+@media (min-width: 640px) {
+    .section-title { font-size: 2.5rem; }
+}
+@media (min-width: 1024px) {
+    .section-title { font-size: 3rem; }
+}
 /* Section Title Underline */
 .section-title::after {
     content: '';
@@ -760,4 +901,413 @@ footer .copyright {
         min-width: 85vw;
         max-width: 90vw;
     }
+}
+
+/* تنسيق رابط شروط الخدمة في قسم التواصل */
+.text-center a[href="Terms.html"] {
+    display: inline-block;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #2563eb; /* أزرق غامق */
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: underline;
+    transition: color 0.2s;
+    letter-spacing: 0.5px;
+}
+.text-center a[href="Terms.html"]:hover {
+    color: #1d4ed8; /* أزرق أغمق عند المرور */
+    text-decoration: underline;
+}
+/* تنسيق معلومات التواصل */
+.email-contact {
+    direction: ltr;
+    font-family: 'Cairo', Arial, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.phone-contact {
+    direction: ltr;
+    font-family: 'Cairo', Arial, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.terms-link {
+    display: inline-block;
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: underline;
+    transition: color 0.2s;
+    letter-spacing: 0.5px;
+}
+.terms-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+/* جمالية إضافية لأيقونات السوشيال ميديا */
+.social-icon {
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
+}
+.social-icon:hover {
+    transform: translateY(-6px) scale(1.08) rotate(-3deg);
+    box-shadow: 0 6px 24px 0 rgba(0,0,0,0.15);
+    border-color: #fff;
+}
+/* جمالية لمعلومات الموقع الجغرافي */
+.location-info {
+    background: rgba(255,255,255,0.06);
+    border-radius: 1.5rem;
+    padding: 0.5rem 1.2rem;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+    display: inline-flex;
+    align-items: center;
+    margin: 0 auto;
+    transition: box-shadow 0.2s;
+}
+.location-info:hover {
+    box-shadow: 0 4px 24px 0 rgba(255,0,0,0.10);
+    background: rgba(255,255,255,0.13);
+}
+/* جمالية إضافية للفوتر */
+footer {
+    letter-spacing: 0.5px;
+}
+footer p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #e2e8f0; /* gray-200 */
+}
+footer i {
+    vertical-align: middle;
+}
+@media (max-width: 640px) {
+    footer .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    footer p {
+        font-size: 1rem;
+    }
+}
+/* جمالية قسم عني */
+#about {
+    background: linear-gradient(135deg, #f8fafc 60%, #e0e7ef 100%);
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 32px 0 rgba(37, 99, 235, 0.07);
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+#about .section-title {
+    color: #2563eb;
+    letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+}
+#about img {
+    border: 4px solid #93c5fd;
+    box-shadow: 0 6px 32px 0 rgba(37, 99, 235, 0.10);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+#about img:hover {
+    transform: scale(1.04) rotate(-2deg);
+    box-shadow: 0 12px 48px 0 rgba(37, 99, 235, 0.18);
+}
+#about h3 {
+    color: #1e40af;
+    margin-bottom: 1rem;
+}
+#about p {
+    color: #334155;
+    font-size: 1.08rem;
+    line-height: 2;
+    margin-bottom: 1.2rem;
+}
+#about a {
+    box-shadow: 0 2px 12px 0 rgba(37,99,235,0.10);
+    font-size: 1.08rem;
+    letter-spacing: 0.5px;
+}
+#about a:hover {
+    box-shadow: 0 6px 24px 0 rgba(37,99,235,0.18);
+    transform: translateY(-2px) scale(1.04);
+}
+@media (max-width: 768px) {
+    #about {
+        border-radius: 0.8rem;
+        padding-bottom: 1.2rem;
+    }
+    #about .section-title {
+        font-size: 1.5rem;
+    }
+    #about img {
+        width: 120px !important;
+        height: 120px !important;
+    }
+}
+@media (max-width: 480px) {
+    #about {
+        padding: 1rem 0.2rem 1.5rem 0.2rem;
+        margin-bottom: 1.2rem;
+    }
+    #about .section-title {
+        font-size: 1.2rem;
+    }
+}
+.typing-hide {
+    color: transparent !important;
+    user-select: none;
+}
+/* جمالية قسم المهارات */
+#skills {
+    background: linear-gradient(120deg, #f1f5f9 70%, #e0e7ef 100%);
+    border-radius: 1.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 32px 0 rgba(37, 99, 235, 0.07);
+    padding-bottom: 2.5rem;
+}
+#skills .section-title {
+    color: #2563eb;
+    letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+}
+.skill-card-glow {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #e0e7ef;
+    transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+    z-index: 1;
+}
+.skill-card-glow:hover {
+    border-color: #2563eb;
+    box-shadow: 0 8px 32px 0 rgba(37,99,235,0.18), 0 0 0 4px #bfdbfe33;
+    transform: translateY(-6px) scale(1.04) rotate(-1deg);
+}
+.skill-icon {
+    font-size: 2.5rem;
+    color: #2563eb;
+    margin-bottom: 1rem;
+    transition: color 0.3s, transform 0.3s;
+}
+.skill-card-glow:hover .skill-icon {
+    color: #1e40af;
+    transform: scale(1.15) rotate(-8deg);
+}
+@media (max-width: 768px) {
+    #skills {
+        border-radius: 0.8rem;
+        padding-bottom: 1.2rem;
+    }
+    #skills .section-title {
+        font-size: 1.5rem;
+    }
+    .skill-icon {
+        font-size: 2rem;
+    }
+}
+@media (max-width: 480px) {
+    #skills {
+        padding: 1rem 0.2rem 1.5rem 0.2rem;
+        margin-bottom: 1.2rem;
+    }
+    #skills .section-title {
+        font-size: 1.2rem;
+    }
+}
+.skill-card-glow {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(.4,2,.3,1), transform 0.7s cubic-bezier(.4,2,.3,1);
+}
+.skill-card-glow.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* جمالية قسم المشاريع */
+#projects {
+    background: linear-gradient(120deg, #f8fafc 70%, #e0e7ef 100%);
+    border-radius: 1.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 32px 0 rgba(37, 99, 235, 0.07);
+    padding-bottom: 2.5rem;
+}
+#projects .section-title {
+    color: #2563eb;
+    letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+}
+#projects .bg-gray-50 {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+    transition: opacity 0.7s cubic-bezier(.4,2,.3,1), transform 0.7s cubic-bezier(.4,2,.3,1);
+    border: 2px solid #e0e7ef;
+}
+#projects .bg-gray-50.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+#projects .bg-gray-50:hover {
+    border-color: #2563eb;
+    box-shadow: 0 8px 32px 0 rgba(37,99,235,0.18), 0 0 0 4px #bfdbfe33;
+    transform: translateY(-6px) scale(1.04) rotate(-1deg);
+}
+#projects img {
+    border-radius: 1rem 1rem 0 0;
+    transition: filter 0.3s;
+}
+#projects .bg-gray-50:hover img {
+    filter: brightness(0.93) blur(0.5px);
+}
+#projects h3 {
+    color: #1e40af;
+    margin-bottom: 1rem;
+}
+#projects p {
+    color: #334155;
+    font-size: 1.02rem;
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+}
+#projects a {
+    box-shadow: 0 2px 12px 0 rgba(37,99,235,0.10);
+    font-size: 1.02rem;
+    letter-spacing: 0.5px;
+}
+#projects a:hover {
+    box-shadow: 0 6px 24px 0 rgba(37,99,235,0.18);
+    transform: translateY(-2px) scale(1.04);
+}
+@media (max-width: 768px) {
+    #projects {
+        border-radius: 0.8rem;
+        padding-bottom: 1.2rem;
+    }
+    #projects .section-title {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 480px) {
+    #projects {
+        padding: 1rem 0.2rem 1.5rem 0.2rem;
+        margin-bottom: 1.2rem;
+    }
+    #projects .section-title {
+        font-size: 1.2rem;
+    }
+}
+.badge-new {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: #dc2626;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: bold;
+    padding: 0.25em 1.1em;
+    border-radius: 1em;
+    box-shadow: 0 2px 8px 0 rgba(220,38,38,0.13);
+    z-index: 2;
+    letter-spacing: 1px;
+    animation: badge-pop 0.7s cubic-bezier(.4,2,.3,1), badge-glow 1.2s ease-in-out 0.7s infinite alternate;
+}
+@keyframes badge-pop {
+    0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+    70% { transform: scale(1.1) rotate(2deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0); }
+}
+@keyframes badge-glow {
+    0% {
+        box-shadow: 0 2px 8px 0 rgba(220,38,38,0.13), 0 0 0 0 #dc2626;
+        filter: brightness(1);
+    }
+    100% {
+        box-shadow: 0 2px 16px 4px rgba(220,38,38,0.35), 0 0 12px 4px #dc2626;
+        filter: brightness(1.18);
+    }
+}
+/* ...existing code... */
+
+/* تحسين مظهر الهيدر التعريفي */
+#hero .bg-black {
+    background: linear-gradient(135deg, rgba(30,41,59,0.92) 60%, rgba(37,99,235,0.85) 100%);
+    box-shadow: 0 8px 40px 0 rgba(37,99,235,0.18), 0 2px 8px 0 rgba(0,0,0,0.08);
+    border-radius: 2rem;
+    border: 2px solid #2563eb33;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+#hero .bg-black:hover {
+    box-shadow: 0 16px 64px 0 rgba(37,99,235,0.28), 0 4px 16px 0 rgba(0,0,0,0.12);
+    border-color: #2563eb;
+}
+
+#hero img {
+    box-shadow: 0 4px 32px 0 rgba(37,99,235,0.18), 0 2px 8px 0 rgba(0,0,0,0.08);
+    border: 4px solid #2563eb;
+    background: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#hero img:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 12px 48px 0 rgba(37,99,235,0.25);
+}
+
+#hero h1 {
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 12px rgba(37,99,235,0.12), 0 1px 2px rgba(0,0,0,0.10);
+}
+
+#hero p {
+    color: #e0e7ef;
+    font-weight: 500;
+    text-shadow: 0 1px 6px rgba(37,99,235,0.10);
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    #hero .bg-black {
+        padding: 1.5rem 0.5rem;
+        border-radius: 1.2rem;
+    }
+    #hero h1 {
+        font-size: 2rem;
+    }
+    #hero p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero .bg-black {
+        padding: 1rem 0.2rem;
+        border-radius: 0.7rem;
+    }
+    #hero img {
+        width: 90px !important;
+        height: 90px !important;
+    }
+    #hero h1 {
+        font-size: 1.2rem;
+    }
+    #hero p {
+        font-size: 1rem;
+    }
+}
+.type-cursor {
+    display: inline-block;
+    width: 1ch;
+    color: #2563eb;
+    animation: blink-cursor 0.8s steps(1) infinite;
+    font-weight: bold;
+    font-size: 1em;
+    vertical-align: baseline;
+}
+@keyframes blink-cursor {
+    0%, 25% { opacity: 1; }
+    50%, 75% { opacity: 2; }
+    76%, 100% { opacity: 0; }
 }
