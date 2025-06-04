@@ -342,3 +342,47 @@ if (heroImage) {
     }, 300);
 }
 });
+const mobileMenuBtn = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('animated-fadeInUp');
+        }
+    });
+}
+
+// ====== تأثير تفاعل على عناصر قائمة الجوال ======
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('touchstart', function () {
+        this.classList.add('ring', 'ring-blue-400', 'scale-105');
+    });
+    link.addEventListener('touchend', function () {
+        this.classList.remove('ring', 'ring-blue-400', 'scale-105');
+    });
+});
+
+// ====== تأثير نبض خفيف على زر "طلب خدمة" في الجوال ======
+const serviceBtn = document.querySelector('#mobile-menu a[href="service-request-page.html"]');
+if (serviceBtn) {
+    serviceBtn.style.animation = "pulseServiceBtn 1.5s infinite alternate";
+}
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes pulseServiceBtn {
+    0% { box-shadow: 0 0 0 0 #2563eb44; }
+    100% { box-shadow: 0 0 16px 4px #2563eb88; }
+}
+`;
+document.head.appendChild(style);
+
+// ====== تأثير عند تمرير الماوس على عناصر القائمة الرئيسية ======
+document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('mouseenter', function () {
+        this.classList.add('scale-105');
+    });
+    link.addEventListener('mouseleave', function () {
+        this.classList.remove('scale-105');
+    });
+});

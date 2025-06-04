@@ -21,41 +21,62 @@
 <body class="bg-gray-200 text-gray-800 rtl">
 
     <!-- شريط التنقل -->
-    <nav class="bg-gray-800 text-white shadow-lg fixed w-full z-50 top-0">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex items-center justify-between">
-                <div>
-                    <a href="index.html" class="text-2xl font-bold hover:text-blue-400 transition">أحمد ستار جبار</a>
-                </div>
-                <div class="hidden md:block">
-                    <ul class="flex items-center space-x-reverse space-x-8">
-                        <li><a href="#hero" class="hover:text-blue-400 transition">الرئيسية</a></li>
-                        <li><a href="#about" class="hover:text-blue-400 transition">عني</a></li>
-                        <li><a href="#skills" class="hover:text-blue-400 transition">المهارات</a></li>
-                        <li><a href="#projects" class="hover:text-blue-400 transition">المشاريع</a></li>
-                        <li><a href="#contact" class="hover:text-blue-400 transition">اتصل بي</a></li>
-                        <li><a href="#testimonials" class="hover:text-blue-400 transition">شهادات العملاء</a></li>
-                        <li><a href="service-request-page.html" class="text-blue-400 font-semibold hover:underline">طلب خدمة</a></li>
-                    </ul>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+    <nav class="bg-gray-800 text-white shadow-lg fixed w-full z-50 top-0 h-20">
+    <div class="container mx-auto px-6 h-full flex items-center justify-between">
+        <!-- اسم الموقع أقصى اليمين -->
+        <a href="index.html" class="text-2xl font-bold hover:text-blue-400 transition whitespace-nowrap">أحمد ستار جبار</a>
+        <!-- القائمة أقصى اليسار -->
+        <div class="hidden md:block animated-fadeInUp">
+            <ul class="flex items-center space-x-1">
+               <li>
+                    <a href="#hero" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">الرئيسية</a>
+                </li>
+                <li>
+                    <a href="#about" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">عني</a>
+                </li>
+                <li>
+                    <a href="#skills" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">المهارات</a>
+                </li>
+                <li>
+                    <a href="Certif.html" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">الشهادات</a>
+                </li>
+                <li>
+                    <a href="servc.html" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">الخدمات</a>
+                </li>
+                <li>
+                    <a href="#projects" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">المشاريع</a>
+                </li>
+                <li>
+                    <a href="#contact" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">اتصل بي</a>
+                </li>
+                <li>
+                    <a href="#testimonials" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">شهادات العملاء</a>
+                </li>
+                <li>
+                    <a href="service-request-page.html" class="text-blue-500 font-bold underline hover:text-blue-700 transition px-3 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 duration-200 shadow-sm">طلب خدمة</a>
+                </li>
+            </ul>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 shadow-lg">
-            <a href="#hero" class="block py-2 px-4 text-sm hover:bg-gray-700 transition">الرئيسية</a>
-            <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-700 transition">عني</a>
-            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-700 transition">المهارات</a>
-            <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-700 transition">المشاريع</a>
-            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-700 transition">اتصل بي</a>
-            <a href="service-request-page.html" class="hover:text-blue-400 py-2 px-4 text-sm text-blue-300 bg-gray-700 transition">طلب خدمة</a>
+        <div class="md:hidden">
+            <button id="mobile-menu-button" class="focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
         </div>
-    </nav>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden bg-gray-800 shadow-lg rounded-b-xl animated-fadeInUp">
+        <a href="#hero" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">الرئيسية</a>
+        <a href="#about" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">عني</a>
+        <a href="#skills" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">المهارات</a>
+        <a href="Certif.html" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">الشهادات</a>
+        <a href="servc.html" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">الخدمات</a>
+        <a href="#projects" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">المشاريع</a>
+        <a href="#contact" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">اتصل بي</a>
+        <a href="#testimonials" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">شهادات العملاء</a>
+        <a href="service-request-page.html" class="block py-3 px-5 text-base font-bold text-blue-400 bg-blue-900 hover:bg-blue-700 hover:text-white transition rounded-lg shadow mb-2">طلب خدمة</a>
+    </div>
+</nav>
 
    <header id="hero" class="hero-bg text-white min-h-screen flex items-center justify-center pt-16">
         <div class="bg-black bg-opacity-70 p-8 md:p-12 rounded-lg text-center max-w-3xl mx-auto">
@@ -64,7 +85,6 @@
             <p class="text-xl md:text-2xl mb-8">إحصائي، محلل بيانات، ومبرمج شغوف بتحويل الأرقام إلى حلول عملية.</p>
         </div>
     </header>
-
     <!-- رموز متحركة -->
     <div class="animation-container flex flex-wrap justify-center gap-4 py-4">
         <span>Σ(xᵢ-μ)²</span>
@@ -84,7 +104,6 @@
         <span>H₀: μ=0</span>
         
     </div>
-
     <!-- قسم عني -->
     <section id="about" class="py-12 md:py-20 bg-white">
         <div class="container mx-auto px-4 sm:px-6">
@@ -104,10 +123,17 @@
                     <p class="text-base sm:text-lg text-gray-700 mb-4 leading-relaxed">
                         متخصص في استخدام أدوات مثل Python (مع مكتبات Pandas, NumPy, Scikit-learn)، R، MATLAB، و SPSS لتحليل البيانات، بناء النماذج التنبؤية، وتصوير البيانات. أسعى دائماً لتعلم أحدث التقنيات وتطبيقها في مشاريعي.
                     </p>
-                    <a href="[مسار_ملف_السيرة_الذاتية.pdf]" target="_blank"
-                       class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300 shadow-md hover:shadow-lg mt-2">
-                        تحميل السيرة الذاتية <i class="fas fa-download ml-2"></i>
+                    <a href="cv/Ahmed_Sattar_Jabbar_CV.pdf" target="_blank"
+                    class="inline-block bg-gradient-to-l from-blue-700 via-blue-500 to-blue-400 hover:from-blue-800 hover:to-blue-600 text-white font-bold py-2 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-2xl mt-2 ring-2 ring-blue-200 hover:ring-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-300 animate-pulse"
+                    download>
+                        تحميل السيرة الذاتية
+                        <i class="fas fa-download ml-2 animate-bounce"></i>
                     </a>
+                    <div class="mt-6">
+                        <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">
+                            تواصل معي
+                        </a>
+                    </div>      
                 </div>
             </div>
         </div>
@@ -308,7 +334,7 @@
     <!-- قسم التواصل -->
     <section id="contact" class="py-16 md:py-24 bg-gray-800 text-gray-200">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-title text-white">تواصل معي</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 section-title text-white">تواصل معي</h2>
             <div class="max-w-2xl mx-auto bg-gray-700 p-8 rounded-lg shadow-2xl">
                 <form id="contact-form" action="https://formspree.io/f/xyzjgrzo" method="POST">
                     <div class="mb-6">
@@ -335,7 +361,7 @@
                 </form>
                 <div id="form-status-message"></div>
             </div>
-            <div class="text-center mt-12">
+            <div class="text-center mt-5">
                 <p class="text-lg mb-2">أو تواصل معي مباشرة عبر:</p>
              <div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-6 mb-2">
                 <div class="flex items-center gap-2">

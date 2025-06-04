@@ -1311,3 +1311,10 @@ footer i {
     50%, 75% { opacity: 2; }
     76%, 100% { opacity: 0; }
 }
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+.animated-fadeInUp {
+    animation: fadeInUp 1s cubic-bezier(.39,.575,.565,1.000) both;
+}

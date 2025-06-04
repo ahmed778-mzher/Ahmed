@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الخدمات المقدمة | أحمد ستار جبار</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles & Fonts */
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f0f4f8 100%);
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+        .rtl { direction: rtl; }
+        .ltr { direction: ltr; }
+        .container, .max-w-2xl, .max-w-xl, .max-w-3xl {
+            width: 100%;
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+        nav {
+    background-color: rgb(31 41 55 / 1) !important;
+}
+.navbar-placeholder {
+    height: 56px;
+    background-color: rgb(57, 54, 95);
+}
+nav {
+    background: transparent;
+}        nav {
+            background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
+            /* add text color to white*/
+        }
+        nav > .container.mx-auto.px-6.py-3 {
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+        }
+        .animated-fadeInUp {
+            animation: fadeInUp 0.5s ease-in-out forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .navbar-placeholder {
+            height: 56px; /* ارتفاع شريط التنقل */
+        }
+        nav {
+    background-color: rgb(31 41 55 / 1) !important;
+    color: #fff !important;
+}
+nav a, nav ul li a {
+    color: #fff !important;
+}
+        .page-header {
+            background-color:#0570c7 ;
+            color: white;
+            padding: 4rem 1.5rem 2.5rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 2.5rem 2.5rem;
+            box-shadow: 0 8px 32px 0 #2563eb22;
+        }
+        .page-header h1 {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1.5px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 8px #1e3a8a33;
+        }
+        .page-header p {
+            font-size: 1.15em;
+            color: #e0f2fe;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 4px #2563eb33;
+        }
+        .section-title-services {
+            color: #2563eb;
+            margin-bottom: 30px;
+            font-size: 2.1em;
+            font-weight: 900;
+            text-align: center;
+            position: relative;
+            padding-bottom: 12px;
+            letter-spacing: 0.7px;
+            text-shadow: 0 2px 8px #bae6fd66;
+        }
+        .section-title-services::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, #38bdf8 0%, #2563eb 100%);
+            margin: 12px auto 0;
+            border-radius: 3px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        .service-card {
+            background: linear-gradient(120deg, #fff 80%, #e0f2fe 100%);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px 0 #2563eb18;
+            overflow: hidden;
+            transition: transform 0.35s cubic-bezier(.39,.575,.565,1), box-shadow 0.35s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: none;
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1s cubic-bezier(.39,.575,.565,1.000) forwards;
+        }
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.035);
+            box-shadow: 0 16px 40px 0 #38bdf844;
+        }
+        .service-icon {
+            font-size: 3.5rem;
+            color: #2563eb;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+            background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .service-card h3 {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+        .service-card p {
+            font-size: 1em;
+            color: #334155;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .service-request-link {
+            display: inline-block;
+            margin-top: auto;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(90deg, #16a34a 0%, #22d3ee 100%);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.08em;
+            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+            box-shadow: 0 2px 12px 0 #16a34a22;
+            letter-spacing: 0.7px;
+        }
+        .service-request-link:hover {
+            background: linear-gradient(90deg, #22d3ee 0%, #16a34a 100%);
+            box-shadow: 0 4px 18px 0 #16a34a33;
+            transform: scale(1.06);
+        }
+        .service-card::before {
+            content: "\f0ad";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #2563eb18;
+            font-size: 3.5rem;
+            position: absolute;
+            left: 1.2rem;
+            top: 1.2rem;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.10;
+        }
+        .footer-placeholder { height: 100px; }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px);}
+            100% { opacity: 1; transform: translateY(0);}
+        }
+        .service-card:nth-child(1) { animation-delay: 0.1s;}
+        .service-card:nth-child(2) { animation-delay: 0.25s;}
+        .service-card:nth-child(3) { animation-delay: 0.4s;}
+        .service-card:nth-child(4) { animation-delay: 0.55s;}
+        .service-card:nth-child(5) { animation-delay: 0.7s;}
+        .service-card:nth-child(6) { animation-delay: 0.85s;}
+        @media (max-width: 900px) {
+            .container { padding: 18px 2vw; }
+            .services-grid { gap: 1.5rem; }
+        }
+        @media (max-width: 640px) {
+            .page-header { padding: 2.2rem 0.5rem 1.5rem 0.5rem; border-radius: 0 0 1.2rem 1.2rem;}
+            .section-title-services { font-size: 1.2em; }
+            .service-card { padding: 1.2rem; }
+            .service-icon { font-size: 2.2rem; }
+        }
+        /* ====== نسق index: خطوط وأزرار وفوتر ====== */
+        button, .btn, .text-center button, .text-center a {
+            min-width: 120px;
+            padding: 0.5rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 640px) {
+            button, .btn, .text-center button, .text-center a {
+                width: 100%;
+                min-width: unset;
+                font-size: 0.95rem;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+        }
+        footer {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 2rem 1rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        footer p {
+            font-size: 1.2rem;
+            margin: 0;
+            color: #e2e8f0;
+        }
+        footer i {
+            vertical-align: middle;
+        }
+        @media (max-width: 640px) {
+            footer .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            footer p {
+                font-size: 1rem;
+            }
+        }
+        /* ...يمكنك إضافة المزيد من نسق index هنا إذا رغبت ... */
+    </style>
+</head>
+<body>
+     <nav class="bg-gray-800 text-white shadow-lg fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a href="index.html" class="text-2xl font-bold hover:text-blue-400 transition">أحمد ستار جبار</a>
+                </div>
+                <div class="hidden md:block animated-fadeInUp">
+                    <ul class="flex items-center space-x-reverse space-x-8">
+                        <li>
+                            <a href="#hero" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">الرئيسية</a>
+                        </li>
+                        <li>
+                            <a href="#about" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">عني</a>
+                        </li>
+                        <li>
+                            <a href="Certif.html" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">المهارات</a>
+                        </li>
+                        <li>
+                            <a href="#skills" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">المهارات</a>
+                        </li>
+                        <li>
+                            <a href="#projects" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">المشاريع</a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">اتصل بي</a>
+                        </li>
+                        <li>
+                            <a href="#testimonials" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">شهادات العملاء</a>
+                        </li>
+                        <li>
+                            <a href="service-request-page.html" class="text-blue-500 font-bold underline hover:text-blue-700 transition px-3 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 duration-200 shadow-sm">طلب خدمة</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+       <div id="mobile-menu" class="md:hidden hidden bg-gray-800 shadow-lg rounded-b-xl animated-fadeInUp">
+            <a href="#hero" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">الرئيسية</a>
+            <a href="#about" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">عني</a>
+            <a href="Certif.html" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1"> الشهادات</a>
+            <a href="#skills" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">المهارات</a>
+            <a href="#projects" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">المشاريع</a>
+            <a href="#contact" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">اتصل بي</a>
+            <a href="service-request-page.html" class="block py-3 px-5 text-base font-bold text-blue-400 bg-blue-900 hover:bg-blue-700 hover:text-white transition rounded-lg shadow mb-2">طلب خدمة</a>
+        </div>
+    </nav>
+    <div class="navbar-placeholder"></div>
+
+    <header class="page-header animated-fadeInUp">
+        <h1>الخدمات التي أقدمها</h1>
+        <p>أقدم مجموعة متنوعة من الخدمات في مجالات تحليل البيانات، الإحصاء، وتطوير البرمجيات لمساعدتك في تحقيق أهدافك وفهم بياناتك بشكل أعمق.</p>
+    </header>
+
+    <div class="container">
+        <section id="services-list">
+            <h2 class="section-title-services">قائمة الخدمات</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>تحليل البيانات الشامل</h3>
+                    <p>تحويل البيانات الخام إلى رؤى قابلة للتنفيذ. يشمل ذلك تنظيف البيانات، التحليل الاستكشافي، تحديد الاتجاهات والأنماط، وتقديم تقارير مفصلة.</p>
+                    <a href="service-request-page.html?service=data_analysis" class="service-request-link">طلب هذه الخدمة</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>بناء النماذج الإحصائية والتنبؤية</h3>
+                    <p>تطوير نماذج إحصائية ونماذج تعلم الآلة للتنبؤ بالنتائج المستقبلية، تصنيف البيانات، أو فهم العلاقات بين المتغيرات المختلفة.</p>
+                    <a href="service-request-page.html?service=statistical_modeling" class="service-request-link">طلب هذه الخدمة</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>تطوير تطبيقات سطح المكتب</h3>
+                    <p>برمجة تطبيقات مخصصة لسطح المكتب (Windows) باستخدام لغة C# ومنصة .NET لتلبية احتياجات عملك الخاصة وأتمتة المهام.</p>
+                    <a href="service-request-page.html?service=desktop_development" class="service-request-link">طلب هذه الخدمة</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>تصوير البيانات ولوحات المؤشرات</h3>
+                    <p>إنشاء رسوم بيانية تفاعلية ولوحات مؤشرات (Dashboards) واضحة وجذابة لعرض البيانات المعقدة بطريقة سهلة الفهم، باستخدام أدوات مثل Tableau, Power BI, أو مكتبات Python.</p>
+                    <a href="service-request-page.html?service=data_visualization" class="service-request-link">طلب هذه الخدمة</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>استشارات في مجال البيانات والإحصاء</h3>
+                    <p>تقديم استشارات متخصصة لمساعدتك في فهم تحديات البيانات الخاصة بك، اختيار المنهجيات المناسبة، وتفسير النتائج الإحصائية بشكل صحيح.</p>
+                    <a href="service-request-page.html?service=consultation" class="service-request-link">طلب هذه الخدمة</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>المساعدة الأكاديمية والتدريب</h3>
+                    <p>تقديم الدعم للباحثين والطلاب في الجوانب التحليلية والإحصائية لأبحاثهم، بالإضافة إلى تقديم دورات تدريبية مخصصة في أدوات وتقنيات تحليل البيانات.</p>
+                    <a href="service-request-page.html?service=academic_training" class="service-request-link">طلب هذه الخدمة</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+        <footer class="bg-gradient-to-t from-gray-900 via-gray-800 to-gray-900 text-gray-300 py-12 text-center shadow-inner mt-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <p class="mb-2 text-lg font-semibold tracking-wide flex items-center justify-center gap-2">
+                <i class="fas fa-database text-blue-500 text-xl animate-bounce"></i>
+                © <span id="currentYear">2025</span> جميع الحقوق محفوظة لـ أحمد ستار جبار.
+            </p>
+            <a href="Terms.html" class="terms-link">شروط الخدمة</a>
+                <!--add a location-->
+                <div class="mt-4 flex items-center justify-center gap-2 text-lg font-semibold text-gray-300 location-info">
+                    <i class="fas fa-map-marker-alt text-red-500 text-2xl"></i>
+                    <span>العراق، بغداد</span>
+                </div>
+            <p class="italic text-gray-400 flex items-center justify-center gap-2">
+                <i class="fas fa-heart text-red-500 animate-pulse"></i>
+                مصمم ومطور بحب وشغف بالبيانات.
+            </p>
+        </div>
+    </footer>
+    <script>
+    // تحديث السنة تلقائياً
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
+
+    <script>
+        // Mobile menu toggle for this page
+        const mobileMenuButtonServices = document.getElementById('mobile-menu-button-services');
+        const mobileMenuServices = document.getElementById('mobile-menu-services');
+        if (mobileMenuButtonServices && mobileMenuServices) {
+            mobileMenuButtonServices.addEventListener('click', () => {
+                mobileMenuServices.classList.toggle('hidden');
+                if (!mobileMenuServices.classList.contains('hidden')) {
+                    mobileMenuServices.classList.add('animated-fadeInUp');
+                }
+            });
+        }
+
+        // Set current year in footer for this page
+        const currentYearServicesPageEl = document.getElementById('currentYearServicesPage');
+        if (currentYearServicesPageEl) {
+            currentYearServicesPageEl.textContent = new Date().getFullYear();
+        }
+
+        // أنيميشن متسلسل للبطاقات عند التمرير
+        function animateCardsOnScroll() {
+            const cards = document.querySelectorAll('.service-card');
+            const trigger = window.innerHeight * 0.92;
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < trigger) {
+                    card.style.opacity = 1;
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        window.addEventListener('scroll', animateCardsOnScroll);
+        window.addEventListener('DOMContentLoaded', animateCardsOnScroll);
+    </script>
+</body>
+</html>

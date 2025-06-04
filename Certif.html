@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشهادات والاستحصلات العملية | أحمد ستار جبار</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f0f4f8 100%);
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            color: #1e293b;
+        }
+        .navbar-placeholder { height: 56px; }
+        nav > .container.mx-auto.px-6.py-3 {
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+        }
+        .page-header {
+            background: linear-gradient(120deg, #2563eb 0%, #38bdf8 100%);
+            color: white;
+            padding: 4rem 1.5rem 2.5rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 2.5rem 2.5rem;
+            box-shadow: 0 8px 32px 0 #2563eb22;
+        }
+        .page-header h1 {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1.5px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 8px #1e3a8a33;
+        }
+        .page-header p {
+            font-size: 1.15em;
+            color: #e0f2fe;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 4px #2563eb33;
+        }
+        .container {
+            padding: 32px 10px;
+            max-width: 1200px;
+            margin: 36px auto;
+        }
+        .section-title {
+            color: #2563eb;
+            margin-bottom: 30px;
+            font-size: 2.1em;
+            font-weight: 900;
+            text-align: center;
+            position: relative;
+            padding-bottom: 12px;
+            letter-spacing: 0.7px;
+            text-shadow: 0 2px 8px #bae6fd66;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(90deg, #38bdf8 0%, #2563eb 100%);
+            margin: 12px auto 0;
+            border-radius: 3px;
+        }
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        .certificate-card {
+            background: linear-gradient(120deg, #fff 80%, #e0f2fe 100%);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px 0 #2563eb18;
+            overflow: hidden;
+            transition: transform 0.35s cubic-bezier(.39,.575,.565,1), box-shadow 0.35s;
+            display: flex;
+            flex-direction: column;
+            border: none;
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1s cubic-bezier(.39,.575,.565,1.000) forwards;
+        }
+        .certificate-card:hover {
+            transform: translateY(-12px) scale(1.035);
+            box-shadow: 0 16px 40px 0 #38bdf844;
+        }
+        .certificate-image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: linear-gradient(90deg, #bae6fd 0%, #f0f4f8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .certificate-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+            border-radius: 0 0 1.5rem 1.5rem;
+        }
+        .certificate-card:hover .certificate-image-container img {
+            transform: scale(1.08) rotate(-2deg);
+        }
+        .certificate-content {
+            padding: 1.7rem 1.3rem 1.2rem 1.3rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .certificate-content h3 {
+            font-size: 1.25em;
+            font-weight: 800;
+            color: #1e40af;
+            margin-bottom: 0.7rem;
+        }
+        .certificate-content p {
+            font-size: 1em;
+            color: #334155;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+        .certificate-content .issuer {
+            font-weight: 600;
+            color: #2563eb;
+        }
+        .certificate-content .date {
+            font-size: 0.97em;
+            color: #64748b;
+            margin-top: auto;
+            padding-top: 0.7rem;
+        }
+        .certificate-link {
+            display: inline-block;
+            margin-top: 1.1rem;
+            padding: 0.7rem 1.4rem;
+            background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+            text-align: center;
+            box-shadow: 0 2px 12px 0 #2563eb22;
+            letter-spacing: 0.7px;
+            font-size: 1.08em;
+        }
+        .certificate-link:hover {
+            background: linear-gradient(90deg, #38bdf8 0%, #2563eb 100%);
+            box-shadow: 0 4px 18px 0 #2563eb33;
+            transform: scale(1.06);
+        }
+        .certificate-card::before {
+            content: "\f559";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #2563eb18;
+            font-size: 3.5rem;
+            position: absolute;
+            left: 1.2rem;
+            top: 1.2rem;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.10;
+        }
+        /* إنجازات */
+        .achievements-list li {
+            position: relative;
+            padding-right: 2.7rem;
+            margin-bottom: 0.7rem;
+            font-size: 1.13em;
+            background: #f8fafc;
+            border-radius: 0.7rem;
+            box-shadow: 0 2px 8px #bae6fd33;
+            padding-top: 0.7rem;
+            padding-bottom: 0.7rem;
+            padding-left: 0.7rem;
+            display: flex;
+            align-items: center;
+        }
+        .achievements-list li::before {
+            content: "\f058";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #38bdf8;
+            position: absolute;
+            right: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.3em;
+        }
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px);}
+            100% { opacity: 1; transform: translateY(0);}
+        }
+        .animated-fadeInUp {
+            animation: fadeInUp 1s cubic-bezier(.39,.575,.565,1.000) both;
+        }
+        .certificate-card:nth-child(1) { animation-delay: 0.1s;}
+        .certificate-card:nth-child(2) { animation-delay: 0.25s;}
+        .certificate-card:nth-child(3) { animation-delay: 0.4s;}
+        @media (max-width: 900px) {
+            .container { padding: 18px 2vw; }
+            .certificates-grid { gap: 1.5rem; }
+        }
+        @media (max-width: 640px) {
+            .page-header { padding: 2.2rem 0.5rem 1.5rem 0.5rem; border-radius: 0 0 1.2rem 1.2rem;}
+            .section-title { font-size: 1.2em; }
+            .certificate-content { padding: 1rem; }
+            .certificate-image-container { height: 140px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-gray-800 text-white shadow-lg fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a href="index.html" class="text-2xl font-bold hover:text-blue-400 transition">أحمد ستار جبار</a>
+                </div>
+                <div class="hidden md:block animated-fadeInUp">
+                    <ul class="flex items-center space-x-reverse space-x-8">
+                        <li>
+                            <a href="#hero" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">الرئيسية</a>
+                        </li>
+                        <li>
+                            <a href="#about" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">عني</a>
+                        </li>
+                        <li>
+                            <a href="Certif.html" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">المهارات</a>
+                        </li>
+                        <li>
+                            <a href="#skills" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">المهارات</a>
+                        </li>
+                        <li>
+                            <a href="#projects" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">المشاريع</a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">اتصل بي</a>
+                        </li>
+                        <li>
+                            <a href="#testimonials" class="hover:text-blue-400 transition font-semibold tracking-wide px-2 py-1 rounded-lg hover:bg-blue-50 duration-200">شهادات العملاء</a>
+                        </li>
+                        <li>
+                            <a href="service-request-page.html" class="text-blue-500 font-bold underline hover:text-blue-700 transition px-3 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 duration-200 shadow-sm">طلب خدمة</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+       <div id="mobile-menu" class="md:hidden hidden bg-gray-800 shadow-lg rounded-b-xl animated-fadeInUp">
+            <a href="#hero" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">الرئيسية</a>
+            <a href="#about" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">عني</a>
+            <a href="Certif.html" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1"> الشهادات</a>
+            <a href="#skills" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">المهارات</a>
+            <a href="#projects" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">المشاريع</a>
+            <a href="#contact" class="block py-3 px-5 text-base font-semibold text-white hover:bg-blue-700 hover:text-blue-200 transition rounded-lg mb-1">اتصل بي</a>
+            <a href="service-request-page.html" class="block py-3 px-5 text-base font-bold text-blue-400 bg-blue-900 hover:bg-blue-700 hover:text-white transition rounded-lg shadow mb-2">طلب خدمة</a>
+        </div>
+    </nav>
+    <div class="navbar-placeholder"></div>
+
+    <header class="page-header animated-fadeInUp">
+        <h1>الشهادات والاستحصلات العملية</h1>
+        <p>مجموعة من الشهادات والدورات التدريبية التي أكملتها، بالإضافة إلى أي استحصلات أو إنجازات مهنية بارزة.</p>
+    </header>
+
+    <div class="container">
+        <section id="certificates">
+            <h2 class="section-title">الشهادات المهنية والدورات التدريبية</h2>
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="certificate-image-container">
+                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=صورة+الشهادة+1" alt="صورة شهادة تحليل البيانات من جوجل" onerror="this.src='https://placehold.co/600x400/3b82f6/ffffff?text=صورة+شهادة'; this.onerror=null;">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>شهادة محترف تحليل البيانات من جوجل</h3>
+                        <p class="issuer">مقدمة من: Google Career Certificates (Coursera)</p>
+                        <p>تغطي هذه الشهادة المهارات الأساسية في تحليل البيانات، بما في ذلك جمع البيانات، تنظيفها، تحليلها، وتصويرها باستخدام أدوات مثل جداول البيانات، SQL، R، و Tableau.</p>
+                        <p class="date">تاريخ الحصول عليها: يناير 2024</p>
+                        <a href="#" target="_blank" class="certificate-link">عرض الشهادة <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-image-container">
+                        <img src="https://placehold.co/600x400/10b981/ffffff?text=صورة+الشهادة+2" alt="صورة شهادة علوم البيانات من IBM" onerror="this.src='https://placehold.co/600x400/10b981/ffffff?text=صورة+شهادة'; this.onerror=null;">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>شهادة تخصص علوم البيانات من IBM</h3>
+                        <p class="issuer">مقدمة من: IBM (Coursera / edX)</p>
+                        <p>سلسلة من الدورات تركز على منهجيات علوم البيانات، الأدوات مفتوحة المصدر (Python, R, SQL)، تعلم الآلة، وتطبيق هذه المهارات على مشاكل واقعية.</p>
+                        <p class="date">تاريخ الحصول عليها: يونيو 2023</p>
+                        <a href="#" target="_blank" class="certificate-link">عرض الشهادة <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-image-container">
+                        <img src="https://placehold.co/600x400/ef4444/ffffff?text=صورة+الشهادة+3" alt="صورة دورة متقدمة في Python" onerror="this.src='https://placehold.co/600x400/ef4444/ffffff?text=صورة+شهادة'; this.onerror=null;">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>دورة متقدمة في برمجة Python لتحليل البيانات</h3>
+                        <p class="issuer">مقدمة من: [اسم المؤسسة التدريبية أو المنصة]</p>
+                        <p>ركزت هذه الدورة على تقنيات متقدمة في استخدام مكتبات Python مثل Pandas, NumPy, و Scikit-learn لتطبيقات تحليل البيانات المعقدة وبناء نماذج تعلم الآلة.</p>
+                        <p class="date">تاريخ الحصول عليها: مارس 2023</p>
+                        <a href="#" target="_blank" class="certificate-link">عرض الشهادة <i class="fas fa-external-link-alt text-xs ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="mt-16">
+            <h2 class="section-title">استحصلات وإنجازات أخرى</h2>
+            <div class="bg-white/80 p-6 md:p-8 rounded-2xl shadow-xl">
+                <ul class="achievements-list p-0">
+                    <li>
+                        <strong class="text-blue-600">جائزة أفضل مشروع تخرج في تحليل البيانات:</strong> قسم الإحصاء، جامعة بغداد (2022) - عن مشروع [اسم مشروع التخرج].
+                    </li>
+                    <li>
+                        <strong class="text-blue-600">نشر بحث علمي:</strong> في مجلة [اسم المجلة] بعنوان "[عنوان البحث]" (2023). (إذا كان لديك)
+                    </li>
+                    <li>
+                        <strong class="text-blue-600">المشاركة كمتحدث:</strong> في [اسم المؤتمر أو الورشة] حول [موضوع المشاركة] (2024). (إذا كان لديك)
+                    </li>
+                    <li>
+                        <strong class="text-blue-600">مساهمات في مشاريع مفتوحة المصدر:</strong> مساهمة في [اسم المشروع المفتوح المصدر] على GitHub. (إذا كان لديك)
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-gradient-to-l from-blue-900 via-blue-700 to-blue-500 text-blue-100 py-12 text-center mt-16 rounded-t-3xl shadow-2xl">
+        <div class="container mx-auto px-6">
+            <p class="mb-2 text-lg font-bold tracking-wide flex items-center justify-center gap-2">
+                <i class="fas fa-certificate text-yellow-400 text-xl animate-bounce"></i>
+                &copy; <span id="currentYearCertsPage"></span> جميع الحقوق محفوظة لـ أحمد ستار جبار.
+            </p>
+            <p class="italic text-blue-100 flex items-center justify-center gap-2">
+                <i class="fas fa-heart text-red-400 animate-pulse"></i>
+                مصمم ومطور بحب وشغف بالبيانات.
+            </p>
+        </div>
+    </footer>
+    <div class="footer-placeholder"></div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButtonCerts = document.getElementById('mobile-menu-button-certs');
+        const mobileMenuCerts = document.getElementById('mobile-menu-certs');
+        if (mobileMenuButtonCerts && mobileMenuCerts) {
+            mobileMenuButtonCerts.addEventListener('click', () => {
+                mobileMenuCerts.classList.toggle('hidden');
+                if (!mobileMenuCerts.classList.contains('hidden')) {
+                    mobileMenuCerts.classList.add('animated-fadeInUp');
+                }
+            });
+        }
+
+        // Set current year in footer
+        const currentYearCertsPageEl = document.getElementById('currentYearCertsPage');
+        if (currentYearCertsPageEl) {
+            currentYearCertsPageEl.textContent = new Date().getFullYear();
+        }
+
+        // إضافة تأثير عند تمرير الماوس على روابط القائمة الرئيسية
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('mouseenter', function () {
+                this.classList.add('scale-105');
+            });
+            link.addEventListener('mouseleave', function () {
+                this.classList.remove('scale-105');
+            });
+        });
+
+        // تأثير نبض خفيف على زر "طلب خدمة" في الجوال
+        const serviceBtn = document.querySelector('#mobile-menu-certs a[href="service-request-page.html"]');
+        if (serviceBtn) {
+            serviceBtn.style.animation = "pulseServiceBtn 1.5s infinite alternate";
+        }
+        const style = document.createElement('style');
+        style.innerHTML = `
+        @keyframes pulseServiceBtn {
+            0% { box-shadow: 0 0 0 0 #2563eb44; }
+            100% { box-shadow: 0 0 16px 4px #2563eb88; }
+        }
+        `;
+        document.head.appendChild(style);
+
+        // أنيميشن متسلسل للبطاقات عند التمرير (للمزيد من الجمال)
+        function animateCardsOnScroll() {
+            const cards = document.querySelectorAll('.certificate-card');
+            const trigger = window.innerHeight * 0.92;
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < trigger) {
+                    card.style.opacity = 1;
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        }
+        window.addEventListener('scroll', animateCardsOnScroll);
+        window.addEventListener('DOMContentLoaded', animateCardsOnScroll);
+    </script>
+</body>
+</html>
